@@ -1,10 +1,11 @@
-import React, { useState, createRef } from 'react';
+import React, { useState, useRef } from 'react';
 import qrcode from 'davidshimjs-qrcodejs';
 
 function QRGenerator() {
 	const [url, setUrl] = useState('');
 	const [size, setSize] = useState(100);
-	const qrCodeRef = createRef();
+	const [activeButton, setActiveButton] = useState(false);
+	const qrCodeRef = useRef();
 
 	function handleUrlChange(event) {
 		setUrl(event.target.value);
@@ -23,6 +24,7 @@ function QRGenerator() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
+		setActiveButton(true);
 		removeQRCode();
 		const qr = new qrcode(qrCodeRef.current, {
 			width: size,
@@ -81,14 +83,15 @@ function QRGenerator() {
 					{qrCodeRef && (
 						<div>
 							<div id="qr" ref={qrCodeRef} />
-							<button
-								type="button"
-								disabled={!qrCodeRef.current}
-								onClick={() => downloadQRCode(qrCodeRef.current)}
-								className="w-full bg-red-500 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
-							>
-								Download QR Code
-							</button>
+							{activeButton && (
+								<button
+									type="button"
+									disabled={!activeButton}
+									onClick={() => downloadQRCode(qrCodeRef.current)}
+								>
+									Download QR Code
+								</button>
+							)}
 						</div>
 					)}
 				</div>
