@@ -43,19 +43,13 @@ function QRGenerator() {
 
 	return (
 		<>
-			<header>
-				<div>
-					<div>QR Code Generator</div>
-				</div>
-			</header>
-			<img src="img/spinner.svg" alt="" />
 			<main>
 				<div>
 					<div>
 						<h1>QR Code Generator</h1>
 						<p>
-							QR Codes allow smartphone users to access your website simply and
-							quickly.
+							Smartphone users can quickly access your website with the tap of a
+							QR Code.
 						</p>
 						<p>
 							Enter your URL below to generate a QR Code and download the image.
