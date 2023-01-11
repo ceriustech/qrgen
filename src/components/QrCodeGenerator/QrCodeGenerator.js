@@ -1,5 +1,13 @@
 import React, { useState, useRef } from 'react';
 import qrcode from 'davidshimjs-qrcodejs';
+import {
+	Container,
+	FormWrapper,
+	StyledForm,
+	QrCodeWrapper,
+	StyledInput,
+	StyledButton,
+} from './styles';
 
 function QRGenerator() {
 	const [url, setUrl] = useState('');
@@ -43,53 +51,51 @@ function QRGenerator() {
 
 	return (
 		<>
-			<main>
-				<div>
-					<div>
-						<h1>QR Code Generator</h1>
-						<p>
-							Smartphone users can quickly access your website with the tap of a
-							QR Code.
-						</p>
-						<p>
-							Enter your URL below to generate a QR Code and download the image.
-						</p>
+			<Container>
+				<FormWrapper>
+					<h1>QR Code Generator</h1>
+					<p>
+						Smartphone users can quickly access your website with the scan of a
+						QR Code.
+					</p>
 
-						<form id="generate-form" onSubmit={handleSubmit}>
-							<input
-								type="url"
-								placeholder="Enter a URL"
-								required
-								value={url}
-								onChange={handleUrlChange}
-							/>
+					<StyledForm id="generate-form" onSubmit={handleSubmit}>
+						<label for="url">Enter URL</label>
+						<StyledInput
+							type="url"
+							placeholder="Enter URL"
+							name="url"
+							required
+							value={url}
+							onChange={handleUrlChange}
+						/>
 
-							<input
-								type="number"
-								name="size"
-								value={size}
-								onChange={handleSizeChange}
-							/>
+						<label for="size">Choose a size</label>
+						<StyledInput
+							type="number"
+							name="size"
+							value={size}
+							onChange={handleSizeChange}
+						/>
 
-							<button type="submit">Generate QR Code</button>
-						</form>
-					</div>
-					{qrCodeRef && (
-						<div>
-							<div id="qr" ref={qrCodeRef} />
-							{activeButton && (
-								<button
-									type="button"
-									disabled={!activeButton}
-									onClick={() => downloadQRCode(qrCodeRef.current)}
-								>
-									Download QR Code
-								</button>
-							)}
-						</div>
-					)}
-				</div>
-			</main>
+						<StyledButton type="submit">Create QR Code</StyledButton>
+					</StyledForm>
+				</FormWrapper>
+				{qrCodeRef && (
+					<QrCodeWrapper>
+						<div id="qr" ref={qrCodeRef} />
+						{activeButton && (
+							<StyledButton
+								type="button"
+								disabled={!activeButton}
+								onClick={() => downloadQRCode(qrCodeRef.current)}
+							>
+								Download QR Code
+							</StyledButton>
+						)}
+					</QrCodeWrapper>
+				)}
+			</Container>
 		</>
 	);
 }
