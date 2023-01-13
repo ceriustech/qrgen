@@ -131,8 +131,7 @@ export const StyledButton = styled.button`
 	color: ${white};
 	font-size: 1rem;
 	margin: 0 auto;
-	padding: 0.5rem 0.25rem;
-	width: 150px;
+	padding: 0.5rem 1rem;
 
 	&:hover {
 		cursor: pointer;
