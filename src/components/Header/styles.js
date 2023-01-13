@@ -30,6 +30,6 @@ color: ${white};
   align-items: center;
 	font-size: 0.75rem;
 	text-align: center;
-	max-width: 15%;
+	max-width: 280px;
 	height: 100%;
 `;

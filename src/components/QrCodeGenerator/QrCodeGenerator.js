@@ -3,6 +3,7 @@ import qrcode from 'davidshimjs-qrcodejs';
 import {
 	Container,
 	FormWrapper,
+	FormHeader,
 	StyledForm,
 	QrCodeWrapper,
 	StyledInput,
@@ -53,12 +54,15 @@ function QRGenerator() {
 		<>
 			<Container>
 				<FormWrapper>
-					<h1>QR Code Generator</h1>
-					<p>
-						Smartphone users can quickly access your website with the scan of a
-						QR Code.
-					</p>
-
+					<FormHeader>
+						<h1>
+							<span>QR Code</span> <span>Generator</span>
+						</h1>
+						<p>
+							Smartphone users can quickly access your website with the scan of
+							a QR Code.
+						</p>
+					</FormHeader>
 					<StyledForm id="generate-form" onSubmit={handleSubmit}>
 						<label for="url">Enter URL</label>
 						<StyledInput
