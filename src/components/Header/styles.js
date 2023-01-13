@@ -1,17 +1,29 @@
 import styled from 'styled-components';
-import { BACKGROUND_COLORS } from '../../global/styles/Colors';
+import {
+	TEXT_COLORS,
+	BACKGROUND_COLORS,
+	BASE_COLORS,
+} from '../../global/styles/Colors';
 
-const { background4, background2 } = BACKGROUND_COLORS;
+const { white } = TEXT_COLORS;
+const { background1 } = BACKGROUND_COLORS;
+const { darkBlue, purple, lightPurple } = BASE_COLORS;
 
 export const Wrapper = styled.header`
-	background-color: ${background4};
+	background-color: ${background1};
 	font-size: 12px;
 	height: 75px;
 	min-width: 100%;
 `;
 
 export const LogoContainer = styled.div`
-	background-color: ${background2};
+background: linear-gradient(
+	to right,
+	${darkBlue},
+	${purple},
+	${lightPurple}
+);
+color: ${white};
 	color: #fff;
   display flex;
   justify-content: center;

@@ -4,13 +4,18 @@ export const TEXT_COLORS = {
 };
 
 export const BACKGROUND_COLORS = {
-	background1: '#F3F7FA',
+	background1: '#DFE1E5',
 	background2: '#4141D6',
 	background3: '#D4D4D4',
-	background4: '#FFF',
+	background4: '#EBEDEF',
 	background5: '##BB82D4',
 };
 
 export const BASE_COLORS = {
 	baseColor1: '#869AB8',
+	blue: '#00008b',
+	darkBlue: '#5348BF',
+	lightBlue: '#3F95CF',
+	purple: '#9400d3',
+	lightPurple: '#B981D6',
 };

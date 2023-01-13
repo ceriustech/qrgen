@@ -6,8 +6,8 @@ import {
 } from '../../global/styles/Colors';
 
 const { white } = TEXT_COLORS;
-const { background2, background4 } = BACKGROUND_COLORS;
-const { baseColor1 } = BASE_COLORS;
+const { background4 } = BACKGROUND_COLORS;
+const { baseColor1, darkBlue, purple, lightPurple } = BASE_COLORS;
 
 export const Container = styled.div`
 	display: grid;
@@ -17,9 +17,10 @@ export const Container = styled.div`
 `;
 
 export const FormWrapper = styled.section`
-	-webkit-box-shadow: 0px 0px 3px 3px rgba(235, 235, 235, 1);
-	-moz-box-shadow: 0px 0px 3px 3px rgba(235, 235, 235, 1);
-	box-shadow: 0px 0px 3px 3px rgba(235, 235, 235, 1);
+	background-color: ${background4};
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(168, 168, 168, 1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(168, 168, 168, 1);
+	box-shadow: 0px 0px 10px 0px rgba(168, 168, 168, 1);
 	border-radius: 1rem;
 	padding: 2rem;
 `;
@@ -31,10 +32,15 @@ export const StyledForm = styled.form`
 
 export const QrCodeWrapper = styled.section`
 	background-color: ${background4};
-	-webkit-box-shadow: 0px 0px 3px 3px rgba(235, 235, 235, 1);
-	-moz-box-shadow: 0px 0px 3px 3px rgba(235, 235, 235, 1);
-	box-shadow: 0px 0px 3px 3px rgba(235, 235, 235, 1);
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(168, 168, 168, 1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(168, 168, 168, 1);
+	box-shadow: 0px 0px 10px 0px rgba(168, 168, 168, 1);
 	border-radius: 1rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 1.5rem;
 	padding: 2rem;
 `;
 
@@ -52,7 +58,7 @@ export const StyledInput = styled.input`
 export const StyledButton = styled.button`
 	border: none;
 	border-radius: 0.45rem;
-	background-color: ${background2};
+	background: linear-gradient(to right, ${darkBlue}, ${purple}, ${lightPurple});
 	color: ${white};
 	font-size: 0.85rem;
 	margin: 0 auto;
