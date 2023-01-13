@@ -7,8 +7,10 @@ import {
 	StyledForm,
 	QrCodeWrapper,
 	StyledInput,
+	SyledButtonsWrapper,
 	StyledButton,
 } from './styles';
+import imageExtension from '../../data/imgExtenstions';
 
 function QRGenerator() {
 	const [url, setUrl] = useState('');
@@ -42,12 +44,29 @@ function QRGenerator() {
 		});
 	}
 
-	function downloadQRCode(qrCodeElement) {
+	function downloadQRCode(qrCodeElement, ext) {
+		console.log('EXT', ext);
 		const canvas = qrCodeElement.querySelector('canvas');
 		const link = document.createElement('a');
-		link.download = 'qr-code.png';
-		link.href = canvas.toDataURL('image/png');
+		link.download = `qr-code.${ext}`;
+		link.href = canvas.toDataURL(`image/${ext}`);
 		link.click();
+	}
+
+	function mapStyledButton(imgExtenstions) {
+		console.log('EXT', imgExtenstions);
+		return imgExtenstions.map((item) => {
+			return (
+				<StyledButton
+					key={item.id}
+					type="button"
+					disabled={!activeButton}
+					onClick={() => downloadQRCode(qrCodeRef.current, item.extension)}
+				>
+					Download {item.extension}
+				</StyledButton>
+			);
+		});
 	}
 
 	return (
@@ -64,7 +83,7 @@ function QRGenerator() {
 						</p>
 					</FormHeader>
 					<StyledForm id="generate-form" onSubmit={handleSubmit}>
-						<label for="url">Enter URL</label>
+						<label htmlFor="url">Enter URL</label>
 						<StyledInput
 							type="url"
 							placeholder="Enter URL"
@@ -74,7 +93,7 @@ function QRGenerator() {
 							onChange={handleUrlChange}
 						/>
 
-						<label for="size">Choose a size</label>
+						<label htmlFor="size">Choose a size</label>
 						<StyledInput
 							type="number"
 							name="size"
@@ -88,15 +107,9 @@ function QRGenerator() {
 				{qrCodeRef && (
 					<QrCodeWrapper>
 						<div id="qr" ref={qrCodeRef} />
-						{activeButton && (
-							<StyledButton
-								type="button"
-								disabled={!activeButton}
-								onClick={() => downloadQRCode(qrCodeRef.current)}
-							>
-								Download QR Code
-							</StyledButton>
-						)}
+						<SyledButtonsWrapper>
+							{activeButton && mapStyledButton(imageExtension)}
+						</SyledButtonsWrapper>
 					</QrCodeWrapper>
 				)}
 			</Container>

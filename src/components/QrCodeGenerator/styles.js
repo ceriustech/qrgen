@@ -101,8 +101,6 @@ export const QrCodeWrapper = styled.section`
 	padding: 2rem;
 `;
 
-export const InputWrapper = styled.div``;
-
 export const StyledInput = styled.input`
 	border: 0.1rem solid #e3ecf2;
 	border-radius: 0.5rem;
@@ -122,6 +120,10 @@ export const StyledInput = styled.input`
 			margin-bottom: 1rem;
 		}
 	}
+`;
+
+export const SyledButtonsWrapper = styled.div`
+	display: flex;
 `;
 
 export const StyledButton = styled.button`
