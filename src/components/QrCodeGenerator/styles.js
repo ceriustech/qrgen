@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
 	TEXT_COLORS,
 	BACKGROUND_COLORS,
@@ -6,9 +6,8 @@ import {
 } from '../../global/styles/Colors';
 import { maxView, miscMaxView } from '../../global/styles/mediaQueries.styles';
 
-const maxViewLaptop = maxView.laptop;
+const maxViewMobileSmall = maxView.mobileS;
 const maxViewMobileL = maxView.mobileL;
-const maxViewTablet = maxView.tablet;
 const miscViewLarge = miscMaxView.miscLarge;
 const miscViewMedium = miscMaxView.miscMedium;
 
@@ -18,31 +17,11 @@ const { baseColor1, darkBlue, purple, lightPurple } = BASE_COLORS;
 
 export const Container = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-gap: 2rem;
 	justify-content: center;
 	margin-top: 4rem;
-
-	@media screen and ${maxViewLaptop} {
-		grid-template-columns: 450px 450px;
-	}
-
-	@media screen and ${miscViewLarge} {
-		grid-template-columns: 750px;
-		grid-template-rows: [row1-start] 500px [row1-end] 500px;
-	}
-
-	@media screen and ${maxViewTablet} {
-		grid-template-columns: 550px;
-	}
-
-	@media screen and ${miscViewMedium} {
-		grid-template-columns: 400px;
-	}
-
-	@media screen and ${maxViewMobileL} {
-		grid-template-columns: 300px;
-	}
+	padding: 1rem;
 `;
 
 export const FormWrapper = styled.section`
@@ -99,6 +78,10 @@ export const QrCodeWrapper = styled.section`
 	align-items: center;
 	row-gap: 1.5rem;
 	padding: 2rem;
+
+	@media screen and ${miscViewMedium} {
+		height: 526px;
+	}
 `;
 
 export const StyledInput = styled.input`
@@ -124,18 +107,36 @@ export const StyledInput = styled.input`
 
 export const SyledButtonsWrapper = styled.div`
 	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+
+	@media screen and ${maxViewMobileSmall} {
+		gap: 0.5rem;
+	}
 `;
 
 export const StyledButton = styled.button`
-	border: none;
-	border-radius: 0.45rem;
-	background: linear-gradient(to right, ${darkBlue}, ${purple}, ${lightPurple});
-	color: ${white};
-	font-size: 1rem;
-	margin: 0 auto;
-	padding: 0.5rem 1rem;
+	${({ setWidth }) => {
+		return css`
+			border: none;
+			border-radius: 0.45rem;
+			background: linear-gradient(
+				to right,
+				${darkBlue},
+				${purple},
+				${lightPurple}
+			);
+			color: ${white};
+			display: flex;
+			flex-direction: column;
+			${setWidth ? 'width: 155px' : 'flex-basis: 33%'};
+			font-size: 1rem;
+			padding: 0.5rem 1rem;
 
-	&:hover {
-		cursor: pointer;
-	}
+			&:hover {
+				cursor: pointer;
+			}
+		`;
+	}}
 `;

@@ -1,19 +1,19 @@
 const imageExtension = [
 	{
 		id: 1,
-		extension: 'png',
+		extension: 'PNG',
 	},
 	{
 		id: 2,
-		extension: 'jpg',
+		extension: 'JPG',
 	},
 	{
 		id: 3,
-		extension: 'webp',
+		extension: 'WEBP',
 	},
 	{
 		id: 4,
-		extension: 'svg',
+		extension: 'SVG',
 	},
 ];
 

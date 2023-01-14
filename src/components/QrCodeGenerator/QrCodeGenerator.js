@@ -63,7 +63,7 @@ function QRGenerator() {
 					disabled={!activeButton}
 					onClick={() => downloadQRCode(qrCodeRef.current, item.extension)}
 				>
-					Download {item.extension}
+					<span>Download</span> <span>{item.extension}</span>
 				</StyledButton>
 			);
 		});
@@ -101,7 +101,7 @@ function QRGenerator() {
 							onChange={handleSizeChange}
 						/>
 
-						<StyledButton type="submit">Create QR Code</StyledButton>
+						<StyledButton type="submit" setWidth={true} >Create QR Code</StyledButton>
 					</StyledForm>
 				</FormWrapper>
 				{qrCodeRef && (

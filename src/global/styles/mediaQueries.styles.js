@@ -9,7 +9,7 @@ export const size = {
 };
 
 export const miscSize = {
-	miscMedium: '575px',
+	miscMedium: '622px',
 	miscLarge: '912px',
 	miscXLarge: '2000px',
 };
