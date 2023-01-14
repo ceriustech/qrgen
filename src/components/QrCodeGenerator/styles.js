@@ -80,7 +80,7 @@ export const QrCodeWrapper = styled.section`
 	padding: 2rem;
 
 	@media screen and ${miscViewMedium} {
-		height: 526px;
+		height: 500px;
 	}
 `;
 

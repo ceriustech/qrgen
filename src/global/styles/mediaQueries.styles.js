@@ -35,6 +35,6 @@ export const minView = {
 };
 
 export const miscMaxView = {
-	miscMedium: `(max-width: ${miscSize.miscSmall})`,
+	miscMedium: `(max-width: ${miscSize.miscMedium})`,
 	miscLarge: `(max-width: ${miscSize.miscLarge})`,
 };
