@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Container from './global/components/Layout/styles';
-import QRGenerator from './components/QrCodeGenerator';
+import TabView from './global/components/Utility/Tabs/Tabs';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 		<div className="App">
 			<Header />
 			<Container>
-				<QRGenerator />
+				<TabView />
 			</Container>
 		</div>
 	);
