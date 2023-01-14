@@ -4,7 +4,7 @@ export const TEXT_COLORS = {
 };
 
 export const BACKGROUND_COLORS = {
-	background1: '#DFE1E5',
+	background1: '#B2B9C4',
 	background2: '#4141D6',
 	background3: '#D4D4D4',
 	background4: '#EBEDEF',
