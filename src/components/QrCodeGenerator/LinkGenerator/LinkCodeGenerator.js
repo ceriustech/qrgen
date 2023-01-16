@@ -10,9 +10,9 @@ import {
 	SyledButtonsWrapper,
 	StyledButton,
 } from './styles';
-import imageExtension from '../../data/imgExtenstions';
+import imageExtension from '../../../data/imgExtenstions';
 
-function QRGenerator() {
+function LinkGenerator() {
 	const [url, setUrl] = useState('');
 	const [size, setSize] = useState(100);
 	const [activeButton, setActiveButton] = useState(false);
@@ -101,7 +101,9 @@ function QRGenerator() {
 							onChange={handleSizeChange}
 						/>
 
-						<StyledButton type="submit" setWidth={true} >Create QR Code</StyledButton>
+						<StyledButton type="submit" setWidth={true}>
+							Create QR Code
+						</StyledButton>
 					</StyledForm>
 				</FormWrapper>
 				{qrCodeRef && (
@@ -117,4 +119,4 @@ function QRGenerator() {
 	);
 }
 
-export default QRGenerator;
+export default LinkGenerator;

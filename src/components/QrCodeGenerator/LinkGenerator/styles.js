@@ -3,8 +3,8 @@ import {
 	TEXT_COLORS,
 	BACKGROUND_COLORS,
 	BASE_COLORS,
-} from '../../global/styles/Colors';
-import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
+} from '../../../global/styles/Colors';
+import { maxView, miscMaxView } from '../../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
 const maxViewMobileL = maxView.mobileL;
