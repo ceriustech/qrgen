@@ -27,13 +27,13 @@ function LinkGenerator() {
 	}
 
 	function removeQRCode() {
-		const qrCode = document.getElementById('qr');
+		const qrCode = document.getElementById('qrcode-url');
 		while (qrCode.firstChild) {
 			qrCode.removeChild(qrCode.firstChild);
 		}
 	}
 
-	function handleSubmit(event) {
+	function generateQRCode(event) {
 		event.preventDefault();
 		setActiveButton(true);
 		removeQRCode();
@@ -45,7 +45,6 @@ function LinkGenerator() {
 	}
 
 	function downloadQRCode(qrCodeElement, ext) {
-		console.log('EXT', ext);
 		const canvas = qrCodeElement.querySelector('canvas');
 		const link = document.createElement('a');
 		link.download = `qr-code.${ext}`;
@@ -82,7 +81,7 @@ function LinkGenerator() {
 							a QR Code.
 						</p>
 					</FormHeader>
-					<StyledForm id="generate-form" onSubmit={handleSubmit}>
+					<StyledForm id="generate-form" onSubmit={generateQRCode}>
 						<label htmlFor="url">Enter URL</label>
 						<StyledInput
 							type="url"
@@ -108,7 +107,7 @@ function LinkGenerator() {
 				</FormWrapper>
 				{qrCodeRef && (
 					<QrCodeWrapper>
-						<div id="qr" ref={qrCodeRef} />
+						<div id="qrcode-url" ref={qrCodeRef} />
 						<SyledButtonsWrapper>
 							{activeButton && mapStyledButton(imageExtension)}
 						</SyledButtonsWrapper>

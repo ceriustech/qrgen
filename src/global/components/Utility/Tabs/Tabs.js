@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import LinkGenerator from '../../../../components/QrCodeGenerator/LinkGenerator';
+import WifiGenerator from '../../../../components/QrCodeGenerator/WifiGenerator';
 import PasswordGenerator from '../../../../components/QrCodeGenerator/PasswordGenerator';
 import { TabContainer, TabButton, TabContent } from './styles';
 
 const tabs = [
 	{ label: 'URL', content: <LinkGenerator /> },
-	{ label: 'WIFI', content: 'Content for tab 2' },
+	{ label: 'WIFI', content: <WifiGenerator /> },
 	{ label: 'Tab 3', content: <PasswordGenerator /> },
 ];
 

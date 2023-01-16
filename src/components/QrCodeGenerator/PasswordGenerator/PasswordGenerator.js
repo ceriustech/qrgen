@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import QRCode from 'davidshimjs-qrcodejs';
+import React, { useState, useRef } from 'react';
+import qrcode from 'davidshimjs-qrcodejs';
 
 const AccessControl = () => {
 	const [accessCode, setAccessCode] = useState('');
 	const [prevAccessCode, setPrevAccessCode] = useState('');
 	const [qrCode, setQRCode] = useState(null);
+	const qrCodeRef = useRef();
 
 	const generateCode = () => {
 		const code =
@@ -14,7 +15,7 @@ const AccessControl = () => {
 	};
 
 	function removeQRCode() {
-		const qrCode = document.getElementById('qr');
+		const qrCode = document.getElementById('qrcode-password');
 		while (qrCode.firstChild) {
 			qrCode.removeChild(qrCode.firstChild);
 		}
@@ -23,23 +24,19 @@ const AccessControl = () => {
 	const generateQRCode = () => {
 		if (accessCode !== prevAccessCode) {
 			removeQRCode();
-			const qr = new QRCode('qr', {
+			const qr = new qrcode(qrCodeRef.current, {
 				text: accessCode,
 				width: 200,
 				height: 200,
 				colorDark: '#000000',
 				colorLight: '#ffffff',
-				correctLevel: QRCode.CorrectLevel.H,
+				correctLevel: qrcode.CorrectLevel.H,
 			});
 			setQRCode(qr);
 			qr.makeCode(accessCode);
 			setPrevAccessCode(accessCode);
 		}
 	};
-
-	console.log('CODE:', accessCode);
-	console.log('PREV CODE:', prevAccessCode);
-	console.log('ACCESS CODE:', accessCode !== prevAccessCode);
 
 	return (
 		<div>
@@ -48,7 +45,7 @@ const AccessControl = () => {
 			{accessCode !== '' && (
 				<div>
 					<p>Access Code: {accessCode}</p>
-					<div id="qr"></div>
+					<div id="qrcode-password" ref={qrCodeRef}></div>
 				</div>
 			)}
 		</div>
