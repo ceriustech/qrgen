@@ -7,7 +7,7 @@ import { TabContainer, TabButton, TabContent } from './styles';
 const tabs = [
 	{ label: 'URL', content: <LinkGenerator /> },
 	{ label: 'WIFI', content: <WifiGenerator /> },
-	{ label: 'Tab 3', content: <PasswordGenerator /> },
+	{ label: 'Password', content: <PasswordGenerator /> },
 ];
 
 const Tabs = () => {

@@ -23,7 +23,7 @@ const WifiGenerator = () => {
 		}
 	};
 
-	const handleSubmit = (e) => {
+	const generateQRCode = (e) => {
 		e.preventDefault();
 		const newQrCode = new qrcode(document.getElementById('qrcode-wifi'), {
 			text: `Network Name: ${networkName}\nNetwork Type: ${networkType}\nWifi Password: ${password}`,
@@ -41,15 +41,17 @@ const WifiGenerator = () => {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={generateQRCode}>
 				<label>
 					Network Name:
 					<input
 						type="text"
 						name="networkName"
+						id="network-name"
 						placeholder="SSID"
 						value={networkName}
 						onChange={handleChange}
+						autoComplete="off"
 					/>
 				</label>
 				<br />
@@ -73,9 +75,11 @@ const WifiGenerator = () => {
 					<input
 						type="password"
 						name="password"
+						id="password"
 						placeholder="Wi-Fi password"
 						value={password}
 						onChange={handleChange}
+						autoComplete="new-password"
 					/>
 				</label>
 				<br />
