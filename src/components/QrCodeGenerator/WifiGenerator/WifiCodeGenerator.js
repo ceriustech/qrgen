@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import qrcode from 'davidshimjs-qrcodejs';
+import QRCode from 'qrcode.react';
 
 const WifiGenerator = () => {
 	const [networkName, setNetworkName] = useState('');
 	const [networkType, setNetworkType] = useState('No encryption');
 	const [password, setPassword] = useState('');
-	const [qrCode, setQrCode] = useState(null);
+	const [wifiData, setWifiData] = useState('');
 
 	const handleChange = (e) => {
 		switch (e.target.name) {
@@ -25,19 +25,8 @@ const WifiGenerator = () => {
 
 	const generateQRCode = (e) => {
 		e.preventDefault();
-		const newQrCode = new qrcode(document.getElementById('qrcode-wifi'), {
-			text: `Network Name: ${networkName}\nNetwork Type: ${networkType}\nWifi Password: ${password}`,
-			width: 128,
-			height: 128,
-			colorDark: '#000000',
-			colorLight: '#ffffff',
-			correctLevel: qrcode.CorrectLevel.H,
-		});
-		setQrCode(newQrCode);
+		setWifiData(`WIFI:T:WPA;S:${networkName};P:${password};`);
 	};
-
-	console.log('NETWORK NAME:', networkName);
-	console.log('PASS:', password);
 
 	return (
 		<div>
@@ -59,6 +48,7 @@ const WifiGenerator = () => {
 					Network Type:
 					<select
 						name="networkType"
+						defaultValue={networkType}
 						value={networkType}
 						onChange={handleChange}
 					>
@@ -85,7 +75,7 @@ const WifiGenerator = () => {
 				<br />
 				<button type="submit">Generate QR Code</button>
 			</form>
-			{qrCode && <div id="qrcode-wifi"></div>}
+			{wifiData && <QRCode value={wifiData} />}
 		</div>
 	);
 };
