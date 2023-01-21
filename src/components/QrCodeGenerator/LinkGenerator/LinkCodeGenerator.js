@@ -42,6 +42,8 @@ function LinkGenerator() {
 			height: size,
 			text: url,
 		});
+
+		return qr;
 	}
 
 	function downloadQRCode(qrCodeElement, ext) {

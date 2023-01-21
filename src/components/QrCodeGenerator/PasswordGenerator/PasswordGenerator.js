@@ -4,7 +4,7 @@ import qrcode from 'davidshimjs-qrcodejs';
 const AccessControl = () => {
 	const [accessCode, setAccessCode] = useState('');
 	const [prevAccessCode, setPrevAccessCode] = useState('');
-	const [qrCode, setQRCode] = useState(null);
+	const [qrCode, setQrCode] = useState(null);
 	const qrCodeRef = useRef();
 
 	const generateCode = () => {
@@ -32,9 +32,11 @@ const AccessControl = () => {
 				colorLight: '#ffffff',
 				correctLevel: qrcode.CorrectLevel.H,
 			});
-			setQRCode(qr);
-			qr.makeCode(accessCode);
-			setPrevAccessCode(accessCode);
+			setQrCode(qr);
+			if (qrCode) {
+				qr.makeCode(accessCode);
+				setPrevAccessCode(accessCode);
+			}
 		}
 	};
 

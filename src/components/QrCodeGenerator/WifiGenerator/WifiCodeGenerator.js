@@ -25,7 +25,7 @@ const WifiGenerator = () => {
 
 	const generateQRCode = (e) => {
 		e.preventDefault();
-		setWifiData(`WIFI:T:WPA;S:${networkName};P:${password};`);
+		if (networkType) setWifiData(`WIFI:T:WPA;S:${networkName};P:${password};`);
 	};
 
 	return (
@@ -52,7 +52,6 @@ const WifiGenerator = () => {
 						value={networkType}
 						onChange={handleChange}
 					>
-						<option value="WEP">WEP</option>
 						<option value="WPA/WPA2">WPA/WPA2</option>
 						<option value="No encryption" selected>
 							No encryption
