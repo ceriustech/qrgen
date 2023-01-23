@@ -20,6 +20,8 @@ const WifiGenerator = () => {
 	const [password, setPassword] = useState('');
 	const [wifiData, setWifiData] = useState('');
 	const [activeButton, setActiveButton] = useState(false);
+	const [size, setSize] = useState(100);
+	const [qrCode, setQrCode] = useState(null);
 	const qrCodeRef = useRef();
 
 	const handleChange = (e) => {
@@ -38,10 +40,16 @@ const WifiGenerator = () => {
 		}
 	};
 
+	function handleSizeChange(event) {
+		setSize(event.target.value);
+	}
+
 	const generateQRCode = (e) => {
 		e.preventDefault();
 		setActiveButton(true);
+		setQrCode(true);
 		if (networkType) setWifiData(`WIFI:T:WPA;S:${networkName};P:${password};`);
+		setSize(size);
 	};
 
 	const downloadQRCode = (qrCodeElement, ext) => {
@@ -83,6 +91,13 @@ const WifiGenerator = () => {
 						<option value="No encryption">No encryption</option>
 					</StyledSelect>
 					<br />
+					<label htmlFor="size">Choose a size</label>
+					<StyledInput
+						type="number"
+						name="size"
+						value={size}
+						onChange={handleSizeChange}
+					/>
 					<label htmlFor="password">Wifi Password</label>
 					<StyledInput
 						type="password"
@@ -100,22 +115,24 @@ const WifiGenerator = () => {
 				</StyledForm>
 			</FormWrapper>
 			<QrCodeWrapper>
-				{password && wifiData && (
-					<>
-						<div id="qrcode-wifi" ref={qrCodeRef}>
-							<QRCode value={wifiData} />
-						</div>
-						<SyledButtonsWrapper>
-							{activeButton &&
-								mapStyledButton(
-									imageExtension,
-									activeButton,
-									downloadQRCode,
-									qrCodeRef.current
-								)}
-						</SyledButtonsWrapper>
-					</>
+				{qrCode && (
+					<div id="qrcode-wifi" ref={qrCodeRef}>
+						{password && wifiData && activeButton && (
+							<QRCode value={wifiData} size={size} />
+						)}
+					</div>
 				)}
+				<SyledButtonsWrapper>
+					{password &&
+						wifiData &&
+						activeButton &&
+						mapStyledButton(
+							imageExtension,
+							activeButton,
+							downloadQRCode,
+							qrCodeRef.current
+						)}
+				</SyledButtonsWrapper>
 			</QrCodeWrapper>
 		</Container>
 	);
