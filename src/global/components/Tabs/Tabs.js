@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import LinkGenerator from '../../../../components/QrCodeGenerator/LinkGenerator';
-import WifiGenerator from '../../../../components/QrCodeGenerator/WifiGenerator';
-import PasswordGenerator from '../../../../components/QrCodeGenerator/PasswordGenerator';
+import LinkGenerator from '../../../components/QrCodeGenerator/LinkGenerator';
+import WifiGenerator from '../../../components/QrCodeGenerator/WifiGenerator';
+import PasswordGenerator from '../../../components/QrCodeGenerator/PasswordGenerator';
 import { TabContainer, TabButton, TabContent } from './styles';
 
 const tabs = [

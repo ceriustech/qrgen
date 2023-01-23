@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Button from '../../../global/components/Button';
 import qrcode from 'davidshimjs-qrcodejs';
 import {
 	Container,
@@ -8,8 +9,7 @@ import {
 	QrCodeWrapper,
 	StyledInput,
 	SyledButtonsWrapper,
-	StyledButton,
-} from './styles';
+} from '../styles';
 import imageExtension from '../../../data/imgExtenstions';
 
 function LinkGenerator() {
@@ -58,14 +58,14 @@ function LinkGenerator() {
 		console.log('EXT', imgExtenstions);
 		return imgExtenstions.map((item) => {
 			return (
-				<StyledButton
+				<Button
 					key={item.id}
-					type="button"
+					typeValue="button"
 					disabled={!activeButton}
-					onClick={() => downloadQRCode(qrCodeRef.current, item.extension)}
+					handleClick={() => downloadQRCode(qrCodeRef.current, item.extension)}
 				>
 					<span>Download</span> <span>{item.extension}</span>
-				</StyledButton>
+				</Button>
 			);
 		});
 	}
@@ -102,9 +102,9 @@ function LinkGenerator() {
 							onChange={handleSizeChange}
 						/>
 
-						<StyledButton type="submit" setWidth={true}>
+						<Button typeValue="submit" setWidth={true}>
 							Create QR Code
-						</StyledButton>
+						</Button>
 					</StyledForm>
 				</FormWrapper>
 				{qrCodeRef && (

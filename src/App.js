@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Container from './global/components/Layout/styles';
-import TabView from './global/components/Utility/Tabs/Tabs';
+import TabView from './global/components/Tabs/Tabs';
 import './App.css';
 
 function App() {
