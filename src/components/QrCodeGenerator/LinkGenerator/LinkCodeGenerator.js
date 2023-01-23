@@ -68,7 +68,7 @@ function LinkGenerator() {
 							a QR Code.
 						</p>
 					</FormHeader>
-					<StyledForm id="generate-form" onSubmit={generateQRCode}>
+					<StyledForm id="url-form" onSubmit={generateQRCode}>
 						<label htmlFor="url">Enter URL</label>
 						<StyledInput
 							type="url"
@@ -87,7 +87,7 @@ function LinkGenerator() {
 							onChange={handleSizeChange}
 						/>
 
-						<Button typeValue="submit" setWidth={true}>
+						<Button typeValue="submit" isWidth={true}>
 							Create QR Code
 						</Button>
 					</StyledForm>

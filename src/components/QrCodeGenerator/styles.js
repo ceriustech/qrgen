@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components';
-import {
-	TEXT_COLORS,
-	BACKGROUND_COLORS,
-	BASE_COLORS,
-} from '../../global/styles/Colors';
+import { BACKGROUND_COLORS, BASE_COLORS } from '../../global/styles/Colors';
 import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
@@ -11,9 +7,8 @@ const maxViewMobileL = maxView.mobileL;
 const miscViewLarge = miscMaxView.miscLarge;
 const miscViewMedium = miscMaxView.miscMedium;
 
-const { white, black } = TEXT_COLORS;
 const { background4 } = BACKGROUND_COLORS;
-const { baseColor1, darkBlue, purple, lightPurple } = BASE_COLORS;
+const { baseColor1 } = BASE_COLORS;
 
 export const Container = styled.div`
 	display: grid;

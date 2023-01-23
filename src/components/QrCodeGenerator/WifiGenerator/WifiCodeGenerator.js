@@ -45,7 +45,7 @@ const WifiGenerator = () => {
 	};
 
 	const downloadQRCode = (qrCodeElement, ext) => {
-		const canvas = qrCodeElement.querySelector('canvas');
+		const canvas = document.querySelector('canvas');
 		const link = document.createElement('a');
 		link.download = `qr-code.${ext}`;
 		link.href = canvas.toDataURL(`image/${ext}`);
@@ -61,7 +61,7 @@ const WifiGenerator = () => {
 					</h1>
 					<p>Create a QR code for easy WIFI access.</p>
 				</FormHeader>
-				<StyledForm onSubmit={generateQRCode}>
+				<StyledForm id="wifi-form" onSubmit={generateQRCode}>
 					<label htmlFor="network-name">Network Name</label>
 					<StyledInput
 						type="text"
@@ -94,7 +94,7 @@ const WifiGenerator = () => {
 						autoComplete="new-password"
 					/>
 					<br />
-					<Button typeValue="submit" setWidth={true}>
+					<Button typeValue="submit" isWidth={true}>
 						Create QR Code
 					</Button>
 				</StyledForm>
