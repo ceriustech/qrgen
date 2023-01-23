@@ -39,9 +39,9 @@ function LinkGenerator() {
 		setActiveButton(true);
 		removeQRCode();
 		const qr = new qrcode(qrCodeRef.current, {
+			text: url,
 			width: size,
 			height: size,
-			text: url,
 		});
 
 		return qr;
