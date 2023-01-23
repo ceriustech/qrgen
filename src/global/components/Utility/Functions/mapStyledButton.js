@@ -9,9 +9,9 @@ const mapStyledButton = (imgExtensions, active, downloadCode, codeElement) => {
 		return (
 			<Button
 				key={item.id}
-				type="button"
+				typeValue="button"
 				disabled={!active}
-				onClick={() => handleDownload(codeElement, item.extension)}
+				handleClick={() => handleDownload(codeElement, item.type)}
 			>
 				<span>Download</span> <span>{item.extension}</span>
 			</Button>

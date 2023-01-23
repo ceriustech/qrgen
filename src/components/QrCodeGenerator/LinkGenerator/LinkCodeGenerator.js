@@ -11,6 +11,7 @@ import {
 	SyledButtonsWrapper,
 } from '../styles';
 import imageExtension from '../../../data/imgExtenstions';
+import mapStyledButton from '../../../global/components/Utility/Functions/mapStyledButton';
 
 function LinkGenerator() {
 	const [url, setUrl] = useState('');
@@ -54,22 +55,6 @@ function LinkGenerator() {
 		link.click();
 	}
 
-	function mapStyledButton(imgExtenstions) {
-		console.log('EXT', imgExtenstions);
-		return imgExtenstions.map((item) => {
-			return (
-				<Button
-					key={item.id}
-					typeValue="button"
-					disabled={!activeButton}
-					handleClick={() => downloadQRCode(qrCodeRef.current, item.extension)}
-				>
-					<span>Download</span> <span>{item.extension}</span>
-				</Button>
-			);
-		});
-	}
-
 	return (
 		<>
 			<Container>
@@ -111,7 +96,13 @@ function LinkGenerator() {
 					<QrCodeWrapper>
 						<div id="qrcode-url" ref={qrCodeRef} />
 						<SyledButtonsWrapper>
-							{activeButton && mapStyledButton(imageExtension)}
+							{activeButton &&
+								mapStyledButton(
+									imageExtension,
+									activeButton,
+									downloadQRCode,
+									qrCodeRef.current
+								)}
 						</SyledButtonsWrapper>
 					</QrCodeWrapper>
 				)}
