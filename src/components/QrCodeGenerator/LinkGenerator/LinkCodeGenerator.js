@@ -85,9 +85,10 @@ function LinkGenerator() {
 							name="size"
 							value={size}
 							onChange={handleSizeChange}
+							disableBottomMargin
 						/>
-
-						<Button typeValue="submit" isWidth={true}>
+						<br />
+						<Button typeValue="submit" isWidth>
 							Create QR Code
 						</Button>
 					</StyledForm>

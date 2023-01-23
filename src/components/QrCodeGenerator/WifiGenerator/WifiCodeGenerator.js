@@ -79,6 +79,7 @@ const WifiGenerator = () => {
 						defaultValue={networkName}
 						onChange={handleChange}
 						autoComplete="off"
+						disableBottomMargin
 					/>
 					<br />
 					<label htmlFor="network-type">Network Type</label>
@@ -107,6 +108,7 @@ const WifiGenerator = () => {
 						defaultValue={password}
 						onChange={handleChange}
 						autoComplete="new-password"
+						disableBottomMargin
 					/>
 					<br />
 					<Button typeValue="submit" isWidth={true}>

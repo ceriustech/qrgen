@@ -81,10 +81,14 @@ const AccessControl = () => {
 						placeholder="Access code here"
 						value={accessCode}
 						onChange={generateCode}
+						disableBottomMargin
 					/>
+					<br />
+					<Button handleClick={generateCode}>Generate Access Code</Button>
+					<Button handleClick={generateQRCode} isWidth>
+						Create QR Code
+					</Button>
 				</StyledForm>
-				<Button handleClick={generateCode}>Generate Access Code</Button>
-				<Button handleClick={generateQRCode}>Generate QR Code</Button>
 			</FormWrapper>
 			<QrCodeWrapper>
 				{accessCode !== '' && <div id="qrcode-password" ref={qrCodeRef} />}
