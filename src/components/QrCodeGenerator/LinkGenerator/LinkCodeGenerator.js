@@ -37,13 +37,16 @@ function LinkGenerator() {
 
 	function generateQRCode(event) {
 		event.preventDefault();
-		setActiveButton(true);
-		removeQRCode();
-		const qr = new qrcode(qrCodeRef.current, {
-			text: url,
-			width: size,
-			height: size,
-		});
+		let qr;
+		if (url) {
+			setActiveButton(true);
+			removeQRCode();
+			qr = new qrcode(qrCodeRef.current, {
+				text: url,
+				width: size,
+				height: size,
+			});
+		}
 
 		return qr;
 	}
