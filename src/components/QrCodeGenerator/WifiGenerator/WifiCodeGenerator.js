@@ -76,7 +76,7 @@ const WifiGenerator = () => {
 						name="networkName"
 						id="network-name"
 						placeholder="SSID"
-						defaultValue={networkName}
+						value={networkName}
 						onChange={handleChange}
 						autoComplete="off"
 						disableBottomMargin
@@ -85,7 +85,7 @@ const WifiGenerator = () => {
 					<label htmlFor="network-type">Network Type</label>
 					<StyledSelect
 						name="networkType"
-						defaultValue={networkType}
+						value={networkType}
 						onChange={handleChange}
 					>
 						<option value="WPA/WPA2">WPA/WPA2</option>
@@ -105,13 +105,13 @@ const WifiGenerator = () => {
 						name="password"
 						id="password"
 						placeholder="Wi-Fi password"
-						defaultValue={password}
+						value={password}
 						onChange={handleChange}
 						autoComplete="new-password"
 						disableBottomMargin
 					/>
 					<br />
-					<Button typeValue="submit" isWidth={true}>
+					<Button typeValue="submit" isWidth>
 						Create QR Code
 					</Button>
 				</StyledForm>

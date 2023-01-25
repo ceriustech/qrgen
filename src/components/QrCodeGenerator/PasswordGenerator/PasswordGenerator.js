@@ -15,12 +15,13 @@ import mapStyledButton from '../../../global/components/Utility/Functions/mapSty
 
 const AccessControl = () => {
 	const [accessCode, setAccessCode] = useState('');
-	const [prevAccessCode, setPrevAccessCode] = useState('');
+	// const [prevAccessCode, setPrevAccessCode] = useState('');
 	const [qrCode, setQrCode] = useState(null);
 	const [size, setSize] = useState(100);
 	const qrCodeRef = useRef();
 
 	function handleSizeChange(event) {
+		event.preventDefault();
 		setSize(event.target.value);
 	}
 
@@ -49,7 +50,6 @@ const AccessControl = () => {
 			setQrCode(qr);
 			if (qrCode) {
 				qr.makeCode(accessCode);
-				setPrevAccessCode(accessCode);
 			}
 		}
 		console.log('SIZE', size);
@@ -66,7 +66,7 @@ const AccessControl = () => {
 						Create a password that can be accessed with the scan of a QR Code.
 					</p>
 				</FormHeader>
-				<StyledForm>
+				<StyledForm id="accesscode-form" onSubmit={(e) => e.preventDefault()}>
 					<label htmlFor="size">Choose a size</label>
 					<StyledInput
 						type="number"
@@ -83,11 +83,9 @@ const AccessControl = () => {
 						onChange={generateCode}
 						disableBottomMargin
 					/>
-					<br />
 					<Button handleClick={generateCode}>Generate Access Code</Button>
-					<Button handleClick={generateQRCode} isWidth>
-						Create QR Code
-					</Button>
+					<br />
+					<Button handleClick={generateQRCode}>Generate QR Code</Button>
 				</StyledForm>
 			</FormWrapper>
 			<QrCodeWrapper>

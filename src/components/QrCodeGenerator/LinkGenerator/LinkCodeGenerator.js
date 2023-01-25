@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
 import qrcode from 'davidshimjs-qrcodejs';
 import {
@@ -69,16 +70,16 @@ function LinkGenerator() {
 						</p>
 					</FormHeader>
 					<StyledForm id="url-form" onSubmit={generateQRCode}>
-						<label htmlFor="url">Enter URL</label>
-						<StyledInput
-							type="url"
-							placeholder="Enter URL"
-							name="url"
-							required
-							value={url}
-							onChange={handleUrlChange}
+						{/* <label htmlFor="url">Enter URL</label> */}
+						<Input
+							label="Choose URL"
+							fieldType="input"
+							typeValue="url"
+							fieldName="url"
+							placeHolder="Enter URL"
+							fieldValue={url}
+							fn={handleUrlChange}
 						/>
-
 						<label htmlFor="size">Choose a size</label>
 						<StyledInput
 							type="number"
