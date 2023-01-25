@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
 import qrcode from 'davidshimjs-qrcodejs';
 import {
@@ -67,20 +68,22 @@ const AccessControl = () => {
 					</p>
 				</FormHeader>
 				<StyledForm id="accesscode-form" onSubmit={(e) => e.preventDefault()}>
-					<label htmlFor="size">Choose a size</label>
-					<StyledInput
-						type="number"
-						name="size"
-						value={size}
-						onChange={handleSizeChange}
+					<Input
+						label="Choose a size"
+						fieldType="input"
+						typeValue="number"
+						fieldName="size"
+						fieldValue={size}
+						fn={handleSizeChange}
 					/>
-					<label htmlFor="accesscode">Access Code</label>
-					<StyledInput
-						type="text"
-						name="accesscode"
-						placeholder="Access code here"
-						value={accessCode}
-						onChange={generateCode}
+					<Input
+						label="Access Code"
+						fieldType="input"
+						typeValue="text"
+						fieldName="accesscode"
+						placeHolder="Access code here"
+						fieldValue={accessCode}
+						fn={generateCode}
 						disableBottomMargin
 					/>
 					<Button handleClick={generateCode}>Generate Access Code</Button>

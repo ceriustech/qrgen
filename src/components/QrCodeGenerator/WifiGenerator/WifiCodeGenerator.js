@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
 import {
 	Container,
@@ -70,27 +71,28 @@ const WifiGenerator = () => {
 					<p>Create a QR code for easy WIFI access.</p>
 				</FormHeader>
 				<StyledForm id="wifi-form" onSubmit={generateQRCode}>
-					<label htmlFor="network-name">Network Name</label>
-					<StyledInput
-						type="text"
-						name="networkName"
-						id="network-name"
-						placeholder="SSID"
-						value={networkName}
-						onChange={handleChange}
-						autoComplete="off"
+					<Input
+						label="Network Name"
+						fieldType="input"
+						typeValue="text"
+						fieldName="networkName"
+						placeHolder="SSID"
+						fieldValue={networkName}
+						fn={handleChange}
+						autoCompleteValue="off"
 						disableBottomMargin
 					/>
 					<br />
-					<label htmlFor="network-type">Network Type</label>
-					<StyledSelect
-						name="networkType"
-						value={networkType}
-						onChange={handleChange}
+					<Input
+						label="Network Type"
+						fieldType="select"
+						fieldName="networkType"
+						fieldValue={networkType}
+						fn={handleChange}
 					>
 						<option value="WPA/WPA2">WPA/WPA2</option>
 						<option value="No encryption">No encryption</option>
-					</StyledSelect>
+					</Input>
 					<br />
 					<label htmlFor="size">Choose a size</label>
 					<StyledInput
@@ -99,15 +101,15 @@ const WifiGenerator = () => {
 						value={size}
 						onChange={handleSizeChange}
 					/>
-					<label htmlFor="password">Wifi Password</label>
-					<StyledInput
-						type="password"
-						name="password"
-						id="password"
-						placeholder="Wi-Fi password"
-						value={password}
-						onChange={handleChange}
-						autoComplete="new-password"
+					<Input
+						label="Wifi Password"
+						fieldType="input"
+						typeValue="password"
+						fieldName="password"
+						placeHolder="Wi-Fi password"
+						fieldValue={password}
+						fn={handleChange}
+						autoCompleteValue="new-password"
 						disableBottomMargin
 					/>
 					<br />

@@ -19,10 +19,10 @@ export const StyledInput = styled.input`
 			border-radius: 0.5rem;
 			color: ${baseColor1};
 			padding: 0.6rem 0.75rem;
-			${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 2rem'};
+			${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 1.5rem'};
 			padding: 0.6rem 0.75rem;
 			&:nth-child(4) {
-				${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 2rem'};
+				${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 1.5rem'};
 				@media screen and ${miscViewLarge} {
 					margin-bottom: 1.25rem;
 				}

@@ -33,16 +33,19 @@ export const Input = (props) => {
 			);
 		} else {
 			field = (
-				<StyledSelect
-					type={typeValue}
-					name={fieldName}
-					placeholder={placeHolder || ''}
-					value={fieldValue}
-					onChange={fn}
-					disableBottomMargin
-				>
-					{children}
-				</StyledSelect>
+				<InputWrapper>
+					<label htmlFor={fieldName}>{label}</label>
+					<StyledSelect
+						type={typeValue}
+						name={fieldName}
+						placeholder={placeHolder || ''}
+						value={fieldValue}
+						onChange={fn}
+						disableBottomMargin
+					>
+						{children}
+					</StyledSelect>
+				</InputWrapper>
 			);
 		}
 		return field;

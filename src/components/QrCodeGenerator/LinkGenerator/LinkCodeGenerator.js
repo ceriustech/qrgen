@@ -70,7 +70,6 @@ function LinkGenerator() {
 						</p>
 					</FormHeader>
 					<StyledForm id="url-form" onSubmit={generateQRCode}>
-						{/* <label htmlFor="url">Enter URL</label> */}
 						<Input
 							label="Choose URL"
 							fieldType="input"
@@ -80,12 +79,13 @@ function LinkGenerator() {
 							fieldValue={url}
 							fn={handleUrlChange}
 						/>
-						<label htmlFor="size">Choose a size</label>
-						<StyledInput
-							type="number"
-							name="size"
-							value={size}
-							onChange={handleSizeChange}
+						<Input
+							label="Choose URL"
+							fieldType="input"
+							typeValue="number"
+							fieldName="size"
+							fieldValue={size}
+							fn={handleSizeChange}
 							disableBottomMargin
 						/>
 						<br />
