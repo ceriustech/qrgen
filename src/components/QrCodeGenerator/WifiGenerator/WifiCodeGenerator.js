@@ -6,9 +6,7 @@ import {
 	FormWrapper,
 	FormHeader,
 	StyledForm,
-	StyledSelect,
 	QrCodeWrapper,
-	StyledInput,
 	SyledButtonsWrapper,
 } from '../styles';
 import QRCode from 'qrcode.react';
@@ -80,9 +78,7 @@ const WifiGenerator = () => {
 						fieldValue={networkName}
 						fn={handleChange}
 						autoCompleteValue="off"
-						disableBottomMargin
 					/>
-					<br />
 					<Input
 						label="Network Type"
 						fieldType="select"
@@ -93,13 +89,13 @@ const WifiGenerator = () => {
 						<option value="WPA/WPA2">WPA/WPA2</option>
 						<option value="No encryption">No encryption</option>
 					</Input>
-					<br />
-					<label htmlFor="size">Choose a size</label>
-					<StyledInput
-						type="number"
-						name="size"
-						value={size}
-						onChange={handleSizeChange}
+					<Input
+						label="Choose a size"
+						fieldType="input"
+						typeValue="number"
+						fieldName="size"
+						fieldValue={size}
+						fn={handleSizeChange}
 					/>
 					<Input
 						label="Wifi Password"

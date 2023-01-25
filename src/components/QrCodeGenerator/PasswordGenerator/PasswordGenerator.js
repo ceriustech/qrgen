@@ -8,15 +8,15 @@ import {
 	FormHeader,
 	StyledForm,
 	QrCodeWrapper,
-	StyledInput,
+	InputWrapper,
 	SyledButtonsWrapper,
+	Divider,
 } from '../styles';
 import imageExtension from '../../../data/imgExtenstions';
 import mapStyledButton from '../../../global/components/Utility/Functions/mapStyledButton';
 
 const AccessControl = () => {
 	const [accessCode, setAccessCode] = useState('');
-	// const [prevAccessCode, setPrevAccessCode] = useState('');
 	const [qrCode, setQrCode] = useState(null);
 	const [size, setSize] = useState(100);
 	const qrCodeRef = useRef();
@@ -76,19 +76,26 @@ const AccessControl = () => {
 						fieldValue={size}
 						fn={handleSizeChange}
 					/>
-					<Input
-						label="Access Code"
-						fieldType="input"
-						typeValue="text"
-						fieldName="accesscode"
-						placeHolder="Access code here"
-						fieldValue={accessCode}
-						fn={generateCode}
-						disableBottomMargin
-					/>
-					<Button handleClick={generateCode}>Generate Access Code</Button>
-					<br />
-					<Button handleClick={generateQRCode}>Generate QR Code</Button>
+					<InputWrapper>
+						<Input
+							label="Access Code"
+							fieldType="input"
+							typeValue="text"
+							fieldName="accesscode"
+							placeHolder="Access code here"
+							fieldValue={accessCode}
+							fn={generateCode}
+							disableBottomMargin
+						/>
+						<br />
+						<Button handleClick={generateCode} isWidth>
+							Generate Access Code
+						</Button>
+					</InputWrapper>
+					<Divider />
+					<Button handleClick={generateQRCode} isWidth>
+						Create QR Code
+					</Button>
 				</StyledForm>
 			</FormWrapper>
 			<QrCodeWrapper>

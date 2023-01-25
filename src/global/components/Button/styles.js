@@ -18,7 +18,8 @@ const StyledButton = styled.button`
 			color: ${white};
 			display: flex;
 			flex-direction: column;
-			${checkWidth ? 'width: 155px' : 'flex-basis: 33%'};
+			align-items: center;
+			${checkWidth ? 'width: 225px' : 'flex-basis: 33%'};
 			font-size: 1rem;
 			padding: 0.5rem 1rem;
 

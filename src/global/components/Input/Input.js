@@ -41,7 +41,7 @@ export const Input = (props) => {
 						placeholder={placeHolder || ''}
 						value={fieldValue}
 						onChange={fn}
-						disableBottomMargin
+						disableBottomMargin={disableBottomMargin}
 					>
 						{children}
 					</StyledSelect>

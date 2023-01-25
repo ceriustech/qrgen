@@ -1,14 +1,11 @@
-import styled, { css } from 'styled-components';
-import { BACKGROUND_COLORS, BASE_COLORS } from '../../global/styles/Colors';
+import styled from 'styled-components';
+import { BACKGROUND_COLORS } from '../../global/styles/Colors';
 import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
-const maxViewMobileL = maxView.mobileL;
-const miscViewLarge = miscMaxView.miscLarge;
 const miscViewMedium = miscMaxView.miscMedium;
 
-const { background4 } = BACKGROUND_COLORS;
-const { baseColor1 } = BASE_COLORS;
+const { background1, background4 } = BACKGROUND_COLORS;
 
 export const Container = styled.div`
 	display: grid;
@@ -75,33 +72,9 @@ export const QrCodeWrapper = styled.section`
 	}
 `;
 
-export const StyledInput = styled.input`
-	${({ disableBottomMargin }) => {
-		return css`
-			border: 0.1rem solid #e3ecf2;
-			border-radius: 0.5rem;
-			color: ${baseColor1};
-			padding: 0.6rem 0.75rem;
-			${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 2rem'};
-			padding: 0.6rem 0.75rem;
-			&:nth-child(4) {
-				${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 2rem'};
-				@media screen and ${miscViewLarge} {
-					margin-bottom: 1.25rem;
-				}
-				@media screen and ${maxViewMobileL} {
-					margin-bottom: 1rem;
-				}
-			}
-		`;
-	}}
-`;
-
-export const StyledSelect = styled.select`
-	border: 0.1rem solid #e3ecf2;
-	border-radius: 0.5rem;
-	color: ${baseColor1};
-	padding: 0.6rem 0.75rem;
+export const InputWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
 `;
 
 export const SyledButtonsWrapper = styled.div`
@@ -112,4 +85,10 @@ export const SyledButtonsWrapper = styled.div`
 	@media screen and ${maxViewMobileSmall} {
 		gap: 0.5rem;
 	}
+`;
+
+export const Divider = styled.div`
+	background-color: ${background1};
+	height: 2px;
+	margin: 1.5rem 0.25rem;
 `;

@@ -8,7 +8,6 @@ import {
 	FormHeader,
 	StyledForm,
 	QrCodeWrapper,
-	StyledInput,
 	SyledButtonsWrapper,
 } from '../styles';
 import imageExtension from '../../../data/imgExtenstions';
