@@ -12,7 +12,6 @@ export const Container = styled.div`
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	grid-gap: 2rem;
 	justify-content: center;
-	margin-top: 4rem;
 	padding: 1rem;
 `;
 

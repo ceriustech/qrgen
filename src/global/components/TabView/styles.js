@@ -1,18 +1,24 @@
 import styled from 'styled-components';
 
-export const TabContainer = styled.div`
+export const TabViewContainer = styled.div`
+	padding: 0 1rem;
+`;
+
+export const TabViewWrapper = styled.div`
 	display: flex;
 	justify-content: center;
+	margin-bottom: 0.5rem;
 `;
 
 export const TabButton = styled.button`
 	padding: 10px 20px;
-	margin: 0 10px;
 	background-color: #fff;
 	border: 1px solid #ccc;
+	border-radius: 1rem;
 	border-bottom: none;
-	border-radius: 0.45rem;
+	margin: 0 0.5rem;
 	cursor: pointer;
+	width: 12%;
 	&:focus {
 		outline: none;
 	}

@@ -53,7 +53,6 @@ const AccessControl = () => {
 				qr.makeCode(accessCode);
 			}
 		}
-		console.log('SIZE', size);
 	};
 
 	return (
