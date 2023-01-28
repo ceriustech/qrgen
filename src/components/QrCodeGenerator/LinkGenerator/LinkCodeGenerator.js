@@ -8,10 +8,11 @@ import {
 	FormHeader,
 	StyledForm,
 	QrCodeWrapper,
-	SyledButtonsWrapper,
+	StyledButtonsWrapper,
 } from '../styles';
 import imageExtension from '../../../data/imgExtenstions';
 import mapStyledButton from '../../../global/components/Utility/Functions/mapStyledButton';
+import downloadQRCode from '../../../global/components/Utility/Functions/downloadQRCode';
 
 function LinkGenerator() {
 	const [url, setUrl] = useState('');
@@ -48,14 +49,6 @@ function LinkGenerator() {
 		}
 
 		return qr;
-	}
-
-	function downloadQRCode(qrCodeElement, ext) {
-		const canvas = qrCodeElement.querySelector('canvas');
-		const link = document.createElement('a');
-		link.download = `qr-code.${ext}`;
-		link.href = canvas.toDataURL(`image/${ext}`);
-		link.click();
 	}
 
 	return (
@@ -99,7 +92,7 @@ function LinkGenerator() {
 				{qrCodeRef && (
 					<QrCodeWrapper>
 						<div id="qrcode-url" ref={qrCodeRef} />
-						<SyledButtonsWrapper>
+						<StyledButtonsWrapper>
 							{activeButton &&
 								mapStyledButton(
 									imageExtension,
@@ -107,7 +100,7 @@ function LinkGenerator() {
 									downloadQRCode,
 									qrCodeRef.current
 								)}
-						</SyledButtonsWrapper>
+						</StyledButtonsWrapper>
 					</QrCodeWrapper>
 				)}
 			</Container>

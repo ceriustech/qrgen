@@ -7,11 +7,12 @@ import {
 	FormHeader,
 	StyledForm,
 	QrCodeWrapper,
-	SyledButtonsWrapper,
+	StyledButtonsWrapper,
 } from '../styles';
 import { QRCodeCanvas } from 'qrcode.react';
 import imageExtension from '../../../data/imgExtenstions';
 import mapStyledButton from '../../../global/components/Utility/Functions/mapStyledButton';
+import downloadQRCode from '../../../global/components/Utility/Functions/downloadQRCode';
 
 const WifiGenerator = () => {
 	const [networkName, setNetworkName] = useState('');
@@ -57,14 +58,6 @@ const WifiGenerator = () => {
 				);
 			}
 		}
-	};
-
-	const downloadQRCode = (qrCodeElement, ext) => {
-		const canvas = document.querySelector('canvas');
-		const link = document.createElement('a');
-		link.download = `qr-code.${ext}`;
-		link.href = canvas.toDataURL(`image/${ext}`);
-		link.click();
 	};
 
 	return (
@@ -126,7 +119,7 @@ const WifiGenerator = () => {
 				<div id="qrcode-wifi" ref={qrCodeRef}>
 					{qrCode}
 				</div>
-				<SyledButtonsWrapper>
+				<StyledButtonsWrapper>
 					{password &&
 						qrCode &&
 						mapStyledButton(
@@ -135,7 +128,7 @@ const WifiGenerator = () => {
 							downloadQRCode,
 							qrCodeRef.current
 						)}
-				</SyledButtonsWrapper>
+				</StyledButtonsWrapper>
 			</QrCodeWrapper>
 		</Container>
 	);

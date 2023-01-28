@@ -74,9 +74,10 @@ export const QrCodeWrapper = styled.section`
 export const InputWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 1.5rem;
 `;
 
-export const SyledButtonsWrapper = styled.div`
+export const StyledButtonsWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem;
@@ -84,10 +85,4 @@ export const SyledButtonsWrapper = styled.div`
 	@media screen and ${maxViewMobileSmall} {
 		gap: 0.5rem;
 	}
-`;
-
-export const Divider = styled.div`
-	background-color: ${background1};
-	height: 2px;
-	margin: 1.5rem 0.25rem;
 `;
