@@ -18,7 +18,7 @@ import mapStyledButton from '../../../global/components/Utility/Functions/mapSty
 const AccessControl = () => {
 	const [accessCode, setAccessCode] = useState('');
 	const [qrCode, setQrCode] = useState(null);
-	const [size, setSize] = useState(100);
+	const [size, setSize] = useState(128);
 	const qrCodeRef = useRef();
 
 	function handleSizeChange(event) {

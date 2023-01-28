@@ -15,7 +15,7 @@ import mapStyledButton from '../../../global/components/Utility/Functions/mapSty
 
 function LinkGenerator() {
 	const [url, setUrl] = useState('');
-	const [size, setSize] = useState(100);
+	const [size, setSize] = useState(128);
 	const [activeButton, setActiveButton] = useState(false);
 	const qrCodeRef = useRef();
 
