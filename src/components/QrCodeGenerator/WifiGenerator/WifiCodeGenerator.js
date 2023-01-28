@@ -9,7 +9,7 @@ import {
 	QrCodeWrapper,
 	SyledButtonsWrapper,
 } from '../styles';
-import QRCode from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 import imageExtension from '../../../data/imgExtenstions';
 import mapStyledButton from '../../../global/components/Utility/Functions/mapStyledButton';
 
@@ -17,11 +17,11 @@ const WifiGenerator = () => {
 	const [networkName, setNetworkName] = useState('');
 	const [networkType, setNetworkType] = useState('No encryption');
 	const [password, setPassword] = useState('');
-	const [wifiData, setWifiData] = useState('');
-	const [activeButton, setActiveButton] = useState(false);
-	const [size, setSize] = useState(100);
-	const [qrCode, setQrCode] = useState(null);
+	const [qrCodeSize, setQrCodeSize] = useState(128);
+	const [qrCode, setQrCode] = useState();
 	const qrCodeRef = useRef();
+
+	console.log('qrCodeSize', qrCodeSize);
 
 	const handleChange = (e) => {
 		switch (e.target.name) {
@@ -40,15 +40,23 @@ const WifiGenerator = () => {
 	};
 
 	function handleSizeChange(event) {
-		setSize(event.target.value);
+		setQrCodeSize(event.target.value);
 	}
 
 	const generateQRCode = (e) => {
 		e.preventDefault();
-		setActiveButton(true);
-		setQrCode(true);
-		if (networkType) setWifiData(`WIFI:T:WPA;S:${networkName};P:${password};`);
-		setSize(size);
+		if (networkName !== '' && password !== '') {
+			if (networkType) {
+				const wifiData = `WIFI:T:WPA;S:${networkName};P:${password};`;
+				setQrCode(
+					<QRCodeCanvas
+						value={wifiData}
+						size={qrCodeSize}
+						style={{ height: `${qrCodeSize}px`, width: `${qrCodeSize}px` }}
+					/>
+				);
+			}
+		}
 	};
 
 	const downloadQRCode = (qrCodeElement, ext) => {
@@ -94,7 +102,7 @@ const WifiGenerator = () => {
 						fieldType="input"
 						typeValue="number"
 						fieldName="size"
-						fieldValue={size}
+						fieldValue={qrCodeSize}
 						fn={handleSizeChange}
 					/>
 					<Input
@@ -115,20 +123,15 @@ const WifiGenerator = () => {
 				</StyledForm>
 			</FormWrapper>
 			<QrCodeWrapper>
-				{qrCode && (
-					<div id="qrcode-wifi" ref={qrCodeRef}>
-						{password && wifiData && activeButton && (
-							<QRCode value={wifiData} size={size} />
-						)}
-					</div>
-				)}
+				<div id="qrcode-wifi" ref={qrCodeRef}>
+					{qrCode}
+				</div>
 				<SyledButtonsWrapper>
 					{password &&
-						wifiData &&
-						activeButton &&
+						qrCode &&
 						mapStyledButton(
 							imageExtension,
-							activeButton,
+							true,
 							downloadQRCode,
 							qrCodeRef.current
 						)}
