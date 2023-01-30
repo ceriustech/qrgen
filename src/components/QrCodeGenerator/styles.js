@@ -3,9 +3,10 @@ import { BACKGROUND_COLORS } from '../../global/styles/Colors';
 import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
+const maxViewMobileLarge = maxView.mobileL;
 const miscViewMedium = miscMaxView.miscMedium;
 
-const { background1, background4 } = BACKGROUND_COLORS;
+const { background4 } = BACKGROUND_COLORS;
 
 export const Container = styled.div`
 	display: grid;
@@ -35,9 +36,18 @@ export const FormHeader = styled.div`
 		span {
 			font-size: 3rem;
 			font-weight: 600;
+
+			@media screen and ${maxViewMobileLarge} {
+				font-size: 2.25rem;
+			}
+
 			&:nth-child(1) {
 				font-size: 2.5rem;
 				font-weight: 300;
+
+				@media screen and ${maxViewMobileLarge} {
+					font-size: 2rem;
+				}
 			}
 		}
 	}
@@ -67,7 +77,7 @@ export const QrCodeWrapper = styled.section`
 	row-gap: 1.5rem;
 	padding: 2rem;
 	@media screen and ${miscViewMedium} {
-		height: 500px;
+		height: 350px;
 	}
 `;
 

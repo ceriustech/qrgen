@@ -6,6 +6,8 @@ export const TabViewContainer = styled.div`
 
 export const TabViewWrapper = styled.div`
 	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
 	justify-content: center;
 	margin-bottom: 0.5rem;
 `;
@@ -18,7 +20,7 @@ export const TabButton = styled.button`
 	border-bottom: none;
 	margin: 0 0.5rem;
 	cursor: pointer;
-	width: 12%;
+	width: 120px;
 	&:focus {
 		outline: none;
 	}

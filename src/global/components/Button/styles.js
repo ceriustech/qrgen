@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 import { TEXT_COLORS, BASE_COLORS } from '../../styles/Colors';
+import { maxView } from '../../styles/mediaQueries';
 
 const { white } = TEXT_COLORS;
 const { darkBlue, purple, lightPurple } = BASE_COLORS;
+const maxViewMobileLarge = maxView.mobileL;
 
 const StyledButton = styled.button`
 	${({ checkWidth }) => {
@@ -25,6 +27,10 @@ const StyledButton = styled.button`
 
 			&:hover {
 				cursor: pointer;
+			}
+
+			@media screen and ${maxViewMobileLarge} {
+				font-size: 0.9rem;
 			}
 		`;
 	}}
