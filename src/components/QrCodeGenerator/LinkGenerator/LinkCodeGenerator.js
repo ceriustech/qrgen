@@ -75,7 +75,7 @@ function LinkGenerator() {
 							fn={handleUrlChange}
 						/>
 						<Input
-							label="Choose URL"
+							label="Choose a size"
 							fieldType="input"
 							typeValue="number"
 							fieldName="size"

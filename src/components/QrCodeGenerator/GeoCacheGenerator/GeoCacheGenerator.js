@@ -15,18 +15,41 @@ import mapStyledButton from '../../../global/components/Utility/Functions/mapSty
 import downloadQRCode from '../../../global/components/Utility/Functions/downloadQRCode';
 
 const GeoCacheGenerator = () => {
-	const [cacheLocation, setCacheLocation] = useState({
-		latitude: '',
-		longitude: '',
-		hint: '',
-		description: '',
-	});
+	const [latitude, setLatitude] = useState('');
+	const [longitude, setLongitude] = useState('');
+	const [qrCodeSize, setQrCodeSize] = useState(128);
+	const [qrCode, setQrCode] = useState();
+	const qrCodeRef = useRef();
 
-	const handleChange = (event) => {
-		setCacheLocation({
-			...cacheLocation,
-			[event.target.name]: event.target.value,
-		});
+	const handleChange = (e) => {
+		switch (e.target.name) {
+			case 'latitude':
+				setLatitude(e.target.value);
+				break;
+			case 'longitude':
+				setLongitude(e.target.value);
+				break;
+			default:
+				break;
+		}
+	};
+
+	function handleSizeChange(event) {
+		setQrCodeSize(event.target.value);
+	}
+
+	const generateQRCode = (e) => {
+		e.preventDefault();
+		if (latitude !== '' && longitude !== '') {
+			const latLong = `${latitude},${longitude}`;
+			setQrCode(
+				<QRCodeCanvas
+					value={latLong}
+					size={qrCodeSize}
+					style={{ height: `${qrCodeSize}px`, width: `${qrCodeSize}px` }}
+				/>
+			);
+		}
 	};
 
 	return (
@@ -38,14 +61,14 @@ const GeoCacheGenerator = () => {
 					</h1>
 					<p>GeoCache with QR codes.</p>
 				</FormHeader>
-				<StyledForm>
+				<StyledForm id="geocash-form" onSubmit={generateQRCode}>
 					<Input
 						label="Latitude"
 						fieldType="input"
 						typeValue="text"
 						fieldName="latitude"
 						placeHolder="Lat"
-						fieldValue={cacheLocation.latitude}
+						fieldValue={latitude}
 						fn={handleChange}
 						autoCompleteValue="off"
 					/>
@@ -55,34 +78,40 @@ const GeoCacheGenerator = () => {
 						typeValue="text"
 						fieldName="longitude"
 						placeHolder="Long"
-						fieldValue={cacheLocation.longitude}
+						fieldValue={longitude}
 						fn={handleChange}
 						autoCompleteValue="off"
 					/>
 					<Input
-						label="Hint"
+						label="Choose a size"
 						fieldType="input"
-						typeValue="text"
-						fieldName="hint"
-						placeHolder="SSID"
-						fieldValue={cacheLocation.hint}
-						fn={handleChange}
-						autoCompleteValue="off"
+						typeValue="number"
+						fieldName="size"
+						fieldValue={qrCodeSize}
+						fn={handleSizeChange}
+						disableBottomMargin
 					/>
-					<Input
-						label="Description"
-						fieldType="input"
-						typeValue="text"
-						fieldName="description"
-						placeHolder="SSID"
-						fieldValue={cacheLocation.description}
-						fn={handleChange}
-						autoCompleteValue="off"
-					/>
+					<br />
+					<Button typeValue="submit" isWidth>
+						Create QR Code
+					</Button>
 				</StyledForm>
 			</FormWrapper>
 			<QrCodeWrapper>
-				<QRCodeCanvas value={JSON.stringify(cacheLocation)} />
+				<div id="qrcode-geocash" ref={qrCodeRef}>
+					{qrCode}
+				</div>
+				<StyledButtonsWrapper>
+					{latitude &&
+						longitude &&
+						qrCode &&
+						mapStyledButton(
+							imageExtension,
+							true,
+							downloadQRCode,
+							qrCodeRef.current
+						)}
+				</StyledButtonsWrapper>
 			</QrCodeWrapper>
 		</Container>
 	);
