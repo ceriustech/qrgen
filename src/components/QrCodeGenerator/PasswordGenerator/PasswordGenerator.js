@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
+import QrCodeIcon from '../../../assets/QrCodeIcon';
 import qrcode from 'davidshimjs-qrcodejs';
 import {
 	Container,
@@ -55,6 +56,8 @@ const AccessControl = () => {
 		}
 	};
 
+	const downloadButtonIcon = 'download';
+
 	return (
 		<Container>
 			<FormWrapper>
@@ -73,11 +76,11 @@ const AccessControl = () => {
 							fieldType="input"
 							typeValue="text"
 							fieldName="accesscode"
-							placeHolder="Access code here"
+							placeHolder="Access code"
 							fieldValue={accessCode}
 							fn={generateCode}
 						/>
-						<Button handleClick={generateCode} isWidth>
+						<Button handleClick={generateCode} isWidth icon={'accesscode'}>
 							Generate Access Code
 						</Button>
 					</InputWrapper>
@@ -89,7 +92,7 @@ const AccessControl = () => {
 						fieldValue={size}
 						fn={handleSizeChange}
 					/>
-					<Button handleClick={generateQRCode} isWidth>
+					<Button handleClick={generateQRCode} isWidth icon={'qrcode'}>
 						Create QR Code
 					</Button>
 				</StyledForm>
@@ -97,13 +100,14 @@ const AccessControl = () => {
 			<QrCodeWrapper>
 				{accessCode !== '' && <div id="qrcode-password" ref={qrCodeRef} />}
 				<StyledButtonsWrapper>
-					{qrCode &&
+					{(qrCode &&
 						mapStyledButton(
 							imageExtension,
 							true,
 							downloadQRCode,
-							qrCodeRef.current
-						)}
+							qrCodeRef.current,
+							downloadButtonIcon
+						)) || <QrCodeIcon />}
 				</StyledButtonsWrapper>
 			</QrCodeWrapper>
 		</Container>

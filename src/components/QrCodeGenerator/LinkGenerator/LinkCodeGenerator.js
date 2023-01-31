@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
+import QrCodeIcon from '../../../assets/QrCodeIcon';
 import qrcode from 'davidshimjs-qrcodejs';
 import {
 	Container,
@@ -51,6 +52,8 @@ function LinkGenerator() {
 		return qr;
 	}
 
+	const downloadButtonIcon = 'download';
+
 	return (
 		<>
 			<Container>
@@ -59,10 +62,7 @@ function LinkGenerator() {
 						<h1>
 							<span>QR Code</span> <span>Generator</span>
 						</h1>
-						<p>
-							Smartphone users can quickly access your website with the scan of
-							a QR Code.
-						</p>
+						<p>Quickly access a website with the scan of a QR Code.</p>
 					</FormHeader>
 					<StyledForm id="url-form" onSubmit={generateQRCode}>
 						<Input
@@ -84,7 +84,7 @@ function LinkGenerator() {
 							disableBottomMargin
 						/>
 						<br />
-						<Button typeValue="submit" isWidth>
+						<Button typeValue="submit" isWidth icon={'qrcode'}>
 							Create QR Code
 						</Button>
 					</StyledForm>
@@ -93,13 +93,14 @@ function LinkGenerator() {
 					<QrCodeWrapper>
 						<div id="qrcode-url" ref={qrCodeRef} />
 						<StyledButtonsWrapper>
-							{activeButton &&
+							{(activeButton &&
 								mapStyledButton(
 									imageExtension,
 									activeButton,
 									downloadQRCode,
-									qrCodeRef.current
-								)}
+									qrCodeRef.current,
+									downloadButtonIcon
+								)) || <QrCodeIcon />}
 						</StyledButtonsWrapper>
 					</QrCodeWrapper>
 				)}

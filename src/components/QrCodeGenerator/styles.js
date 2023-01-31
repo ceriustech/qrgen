@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { BACKGROUND_COLORS } from '../../global/styles/Colors';
+import { BACKGROUND_COLORS, TEXT_COLORS } from '../../global/styles/Colors';
 import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
+const maxViewMobileMedium = maxView.mobileM;
 const maxViewMobileLarge = maxView.mobileL;
 const miscViewMedium = miscMaxView.miscMedium;
 
@@ -38,15 +39,11 @@ export const FormHeader = styled.div`
 		flex-direction: column;
 		margin-bottom: 1.5rem;
 		span {
-			font-size: 3rem;
+			font-size: 2rem;
 			font-weight: 600;
 
-			@media screen and ${maxViewMobileLarge} {
-				font-size: 2.25rem;
-			}
-
 			&:nth-child(1) {
-				font-size: 2.5rem;
+				font-size: 1.75rem;
 				font-weight: 300;
 
 				@media screen and ${maxViewMobileLarge} {
@@ -80,7 +77,12 @@ export const QrCodeWrapper = styled.section`
 	align-items: center;
 	row-gap: 1.5rem;
 	padding: 2rem;
+
 	@media screen and ${miscViewMedium} {
+		height: 450px;
+	}
+
+	@media screen and ${maxViewMobileMedium} {
 		height: 350px;
 	}
 `;

@@ -25,12 +25,17 @@ export const NavContainer = styled.div`
 	height: 100%;
 `;
 
-export const Logo = styled.h1`
+export const LogoContainer = styled.div`
+	display: flex;
+	align-items: initial;
+`;
+
+export const LogoText = styled.h1`
 	color: transparent;
 	background: linear-gradient(to right, ${darkBlue}, ${purple});
 	background-clip: text;
 	-webkit-background-clip: text;
-	font-size: 2rem;
+	font-size: 1.75rem;
 
 	@media screen and ${maxViewMobileLarge} {
 		font-size: 1.5rem;

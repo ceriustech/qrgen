@@ -12,6 +12,10 @@ export const InputWrapper = styled.div`
 	flex-direction: column;
 `;
 
+export const Label = styled.label`
+	font-weight: 500;
+`;
+
 export const StyledInput = styled.input`
 	${({ disableBottomMargin }) => {
 		return css`

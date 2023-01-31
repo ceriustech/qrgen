@@ -1,6 +1,12 @@
 import Button from '../../Button';
 
-const mapStyledButton = (imgExtensions, active, downloadCode, codeElement) => {
+const mapStyledButton = (
+	imgExtensions,
+	active,
+	downloadCode,
+	codeElement,
+	icon
+) => {
 	const handleDownload = (element, extension) => {
 		downloadCode(element, extension);
 	};
@@ -12,6 +18,7 @@ const mapStyledButton = (imgExtensions, active, downloadCode, codeElement) => {
 				typeValue="button"
 				disabled={!active}
 				handleClick={() => handleDownload(codeElement, item.type)}
+				icon={icon}
 			>
 				<span>Download</span> <span>{item.extension}</span>
 			</Button>

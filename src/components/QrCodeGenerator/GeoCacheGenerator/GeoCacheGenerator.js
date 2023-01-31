@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
+import QrCodeIcon from '../../../assets/QrCodeIcon';
 import {
 	Container,
 	FormWrapper,
@@ -52,6 +53,8 @@ const GeoCacheGenerator = () => {
 		}
 	};
 
+	const downloadButtonIcon = 'download';
+
 	return (
 		<Container>
 			<FormWrapper>
@@ -92,7 +95,7 @@ const GeoCacheGenerator = () => {
 						disableBottomMargin
 					/>
 					<br />
-					<Button typeValue="submit" isWidth>
+					<Button typeValue="submit" isWidth icon={'qrcode'}>
 						Create QR Code
 					</Button>
 				</StyledForm>
@@ -102,15 +105,16 @@ const GeoCacheGenerator = () => {
 					{qrCode}
 				</div>
 				<StyledButtonsWrapper>
-					{latitude &&
+					{(latitude &&
 						longitude &&
 						qrCode &&
 						mapStyledButton(
 							imageExtension,
 							true,
 							downloadQRCode,
-							qrCodeRef.current
-						)}
+							qrCodeRef.current,
+							downloadButtonIcon
+						)) || <QrCodeIcon />}
 				</StyledButtonsWrapper>
 			</QrCodeWrapper>
 		</Container>

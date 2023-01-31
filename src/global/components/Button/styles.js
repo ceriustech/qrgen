@@ -19,11 +19,15 @@ const StyledButton = styled.button`
 			);
 			color: ${white};
 			display: flex;
-			flex-direction: column;
 			align-items: center;
 			${checkWidth ? 'width: 225px' : 'flex-basis: 33%'};
+			justify-content: center;
 			font-size: 1rem;
 			padding: 0.5rem 1rem;
+
+			span {
+				margin-left: 0.5rem;
+			}
 
 			&:hover {
 				cursor: pointer;

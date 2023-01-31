@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
+import QrCodeIcon from '../../../assets/QrCodeIcon';
 import {
 	Container,
 	FormWrapper,
@@ -21,8 +22,6 @@ const WifiGenerator = () => {
 	const [qrCodeSize, setQrCodeSize] = useState(128);
 	const [qrCode, setQrCode] = useState();
 	const qrCodeRef = useRef();
-
-	console.log('qrCodeSize', qrCodeSize);
 
 	const handleChange = (e) => {
 		switch (e.target.name) {
@@ -59,6 +58,8 @@ const WifiGenerator = () => {
 			}
 		}
 	};
+
+	const downloadButtonIcon = 'download';
 
 	return (
 		<Container>
@@ -110,7 +111,7 @@ const WifiGenerator = () => {
 						disableBottomMargin
 					/>
 					<br />
-					<Button typeValue="submit" isWidth>
+					<Button typeValue="submit" isWidth icon={'qrcode'}>
 						Create QR Code
 					</Button>
 				</StyledForm>
@@ -120,14 +121,15 @@ const WifiGenerator = () => {
 					{qrCode}
 				</div>
 				<StyledButtonsWrapper>
-					{password &&
+					{(password &&
 						qrCode &&
 						mapStyledButton(
 							imageExtension,
 							true,
 							downloadQRCode,
-							qrCodeRef.current
-						)}
+							qrCodeRef.current,
+							downloadButtonIcon
+						)) || <QrCodeIcon />}
 				</StyledButtonsWrapper>
 			</QrCodeWrapper>
 		</Container>

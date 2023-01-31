@@ -1,4 +1,4 @@
-import { InputWrapper, StyledInput, StyledSelect } from './styles';
+import { InputWrapper, Label, StyledInput, StyledSelect } from './styles';
 
 export const Input = (props) => {
 	function getValue(props) {
@@ -19,7 +19,7 @@ export const Input = (props) => {
 		if (fieldType === 'input') {
 			field = (
 				<InputWrapper>
-					<label htmlFor={fieldName}>{label}</label>
+					<Label htmlFor={fieldName}>{label}</Label>
 					<StyledInput
 						type={typeValue}
 						name={fieldName}
@@ -34,7 +34,7 @@ export const Input = (props) => {
 		} else {
 			field = (
 				<InputWrapper>
-					<label htmlFor={fieldName}>{label}</label>
+					<Label htmlFor={fieldName}>{label}</Label>
 					<StyledSelect
 						type={typeValue}
 						name={fieldName}

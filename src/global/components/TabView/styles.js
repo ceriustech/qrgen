@@ -12,7 +12,7 @@ export const TabViewWrapper = styled.div`
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	justify-content: center;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 `;
 
 export const TabButton = styled.button`
