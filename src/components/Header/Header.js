@@ -1,11 +1,11 @@
-import { Wrapper, LogoContainer } from './styles';
+import { Wrapper, NavContainer, Logo } from './styles';
 
 const Header = () => {
 	return (
 		<Wrapper>
-			<LogoContainer>
-				<h1>- QrGen</h1>
-			</LogoContainer>
+			<NavContainer>
+				<Logo>- QrGen</Logo>
+			</NavContainer>
 		</Wrapper>
 	);
 };

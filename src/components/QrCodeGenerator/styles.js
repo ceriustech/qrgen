@@ -14,6 +14,10 @@ export const Container = styled.div`
 	grid-gap: 2rem;
 	justify-content: center;
 	padding: 1rem;
+
+	@media screen and ${maxViewMobileSmall} {
+		padding: 0.5rem;
+	}
 `;
 
 export const FormWrapper = styled.section`

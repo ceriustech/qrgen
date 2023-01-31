@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import Footer from './components/Footer/Footer';
 import Container from './global/components/Layout/styles';
 import TabView from './global/components/TabView/TabView';
 import './App.css';
@@ -10,6 +11,7 @@ function App() {
 			<Container>
 				<TabView />
 			</Container>
+			<Footer />
 		</div>
 	);
 }

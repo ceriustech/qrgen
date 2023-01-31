@@ -1,13 +1,10 @@
 import styled from 'styled-components';
-import {
-	TEXT_COLORS,
-	BACKGROUND_COLORS,
-	BASE_COLORS,
-} from '../../global/styles/Colors';
+import { BACKGROUND_COLORS, BASE_COLORS } from '../../global/styles/Colors';
+import { maxView } from '../../global/styles/mediaQueries';
 
-const { white } = TEXT_COLORS;
 const { background1 } = BACKGROUND_COLORS;
-const { darkBlue, purple, lightPurple } = BASE_COLORS;
+const { darkBlue, purple } = BASE_COLORS;
+const maxViewMobileLarge = maxView.mobileL;
 
 export const Wrapper = styled.header`
 	background-color: ${background1};
@@ -16,20 +13,26 @@ export const Wrapper = styled.header`
 	min-width: 100%;
 `;
 
-export const LogoContainer = styled.div`
-background: linear-gradient(
-	to right,
-	${darkBlue},
-	${purple},
-	${lightPurple}
-);
-color: ${white};
-	color: #fff;
+export const NavContainer = styled.div`
   display flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-	font-size: 0.75rem;
+	font-size: 12px;
 	text-align: center;
-	max-width: 280px;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 1rem;
 	height: 100%;
+`;
+
+export const Logo = styled.h1`
+	color: transparent;
+	background: linear-gradient(to right, ${darkBlue}, ${purple});
+	background-clip: text;
+	-webkit-background-clip: text;
+	font-size: 2rem;
+
+	@media screen and ${maxViewMobileLarge} {
+		font-size: 1.5rem;
+	}
 `;

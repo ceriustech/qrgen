@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { maxView } from '../../styles/mediaQueries';
+
+const maxViewMobileSmall = maxView.mobileS;
 
 export const TabViewContainer = styled.div`
 	padding: 0 1rem;
@@ -27,6 +30,10 @@ export const TabButton = styled.button`
 `;
 
 export const TabContent = styled.div`
-	padding: 20px;
+	padding: 1rem;
 	border: 1px solid #ccc;
+
+	@media screen and ${maxViewMobileSmall} {
+		padding: 0;
+	}
 `;
