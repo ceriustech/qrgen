@@ -3,7 +3,7 @@ import QrCodeIcon from '../../../assets/qr-code-small.svg';
 import AccessCodeIcon from '../../../assets/access-code-logo.svg';
 import DownloadIcon from '../../../assets/picture-logo.svg';
 
-const Button = ({ typeValue, children, handleClick, isWidth, icon }) => {
+const Button = ({ typeValue, children, handleClick, isWidth, icon, type }) => {
 	let buttonIcon;
 	if (icon === 'qrcode') {
 		buttonIcon = QrCodeIcon;
@@ -13,9 +13,15 @@ const Button = ({ typeValue, children, handleClick, isWidth, icon }) => {
 		buttonIcon = DownloadIcon;
 	}
 	return (
-		<StyledButton type={typeValue} checkWidth={isWidth} onClick={handleClick}>
-			<img src={buttonIcon} alt="Qrgen logo" />
-			<span>{children}</span>
+		<StyledButton
+			type={typeValue}
+			checkWidth={isWidth}
+			onClick={handleClick}
+			buttonType={type}
+		>
+			{type !== 'download' && <img src={buttonIcon} alt="Qrgen logo" />}
+			<p>{children}</p>
+			{type === 'download' && <img src={buttonIcon} alt="Qrgen logo" />}
 		</StyledButton>
 	);
 };

@@ -60,6 +60,7 @@ const WifiGenerator = () => {
 	};
 
 	const downloadButtonIcon = 'download';
+	const type = 'download';
 
 	return (
 		<Container>
@@ -128,7 +129,8 @@ const WifiGenerator = () => {
 							true,
 							downloadQRCode,
 							qrCodeRef.current,
-							downloadButtonIcon
+							downloadButtonIcon,
+							type
 						)) || <QrCodeIcon />}
 				</StyledButtonsWrapper>
 			</QrCodeWrapper>

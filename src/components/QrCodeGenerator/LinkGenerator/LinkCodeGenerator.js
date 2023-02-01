@@ -53,6 +53,7 @@ function LinkGenerator() {
 	}
 
 	const downloadButtonIcon = 'download';
+	const type = 'download';
 
 	return (
 		<>
@@ -99,7 +100,8 @@ function LinkGenerator() {
 									activeButton,
 									downloadQRCode,
 									qrCodeRef.current,
-									downloadButtonIcon
+									downloadButtonIcon,
+									type
 								)) || <QrCodeIcon />}
 						</StyledButtonsWrapper>
 					</QrCodeWrapper>

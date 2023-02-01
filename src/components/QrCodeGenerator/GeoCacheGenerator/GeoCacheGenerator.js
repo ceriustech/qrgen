@@ -54,6 +54,7 @@ const GeoCacheGenerator = () => {
 	};
 
 	const downloadButtonIcon = 'download';
+	const type = 'download';
 
 	return (
 		<Container>
@@ -104,7 +105,7 @@ const GeoCacheGenerator = () => {
 				<div id="qrcode-geocash" ref={qrCodeRef}>
 					{qrCode}
 				</div>
-				<StyledButtonsWrapper>
+				<StyledButtonsWrapper buttonType={type}>
 					{(latitude &&
 						longitude &&
 						qrCode &&
@@ -113,7 +114,8 @@ const GeoCacheGenerator = () => {
 							true,
 							downloadQRCode,
 							qrCodeRef.current,
-							downloadButtonIcon
+							downloadButtonIcon,
+							type
 						)) || <QrCodeIcon />}
 				</StyledButtonsWrapper>
 			</QrCodeWrapper>

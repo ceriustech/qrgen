@@ -57,6 +57,7 @@ const AccessControl = () => {
 	};
 
 	const downloadButtonIcon = 'download';
+	const type = 'download';
 
 	return (
 		<Container>
@@ -106,7 +107,8 @@ const AccessControl = () => {
 							true,
 							downloadQRCode,
 							qrCodeRef.current,
-							downloadButtonIcon
+							downloadButtonIcon,
+							type
 						)) || <QrCodeIcon />}
 				</StyledButtonsWrapper>
 			</QrCodeWrapper>

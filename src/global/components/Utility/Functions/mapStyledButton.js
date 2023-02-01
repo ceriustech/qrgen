@@ -5,7 +5,8 @@ const mapStyledButton = (
 	active,
 	downloadCode,
 	codeElement,
-	icon
+	icon,
+	type
 ) => {
 	const handleDownload = (element, extension) => {
 		downloadCode(element, extension);
@@ -19,8 +20,9 @@ const mapStyledButton = (
 				disabled={!active}
 				handleClick={() => handleDownload(codeElement, item.type)}
 				icon={icon}
+				type={type}
 			>
-				<span>Download</span> <span>{item.extension}</span>
+				<span>Download {item.extension}</span>
 			</Button>
 		);
 	});

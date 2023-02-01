@@ -4,7 +4,7 @@ import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
 const maxViewMobileMedium = maxView.mobileM;
-const maxViewMobileLarge = maxView.mobileL;
+const maxViewTablet = maxView.tablet;
 const miscViewMedium = miscMaxView.miscMedium;
 
 const { background4 } = BACKGROUND_COLORS;
@@ -45,10 +45,6 @@ export const FormHeader = styled.div`
 			&:nth-child(1) {
 				font-size: 1.75rem;
 				font-weight: 300;
-
-				@media screen and ${maxViewMobileLarge} {
-					font-size: 2rem;
-				}
 			}
 		}
 	}
@@ -96,9 +92,10 @@ export const InputWrapper = styled.div`
 export const StyledButtonsWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1rem;
+	gap: 0.5rem;
 	justify-content: center;
-	@media screen and ${maxViewMobileSmall} {
+
+	@media screen and ${maxViewTablet} {
 		gap: 0.5rem;
 	}
 `;
