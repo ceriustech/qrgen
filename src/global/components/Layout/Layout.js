@@ -1,6 +1,6 @@
 import Container from './styles';
 
-const Layout = () => {
+const Layout = ({ children }) => {
 	return <Container>{children}</Container>;
 };
 
