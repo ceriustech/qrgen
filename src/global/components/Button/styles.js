@@ -24,7 +24,7 @@ const StyledButton = styled.button`
 			${checkWidth ? 'width: 225px' : 'flex-basis: 33%'};
 			justify-content: center;
 			font-size: 12px;
-			padding: 0.5rem 1rem;
+			padding: 0.5rem;
 			position: relative;
 			${buttonType === 'download' ? 'width: 104px;' : ''}
 
@@ -33,7 +33,7 @@ const StyledButton = styled.button`
 				flex-direction: column;
 				font-size: 1.05rem;
 				${buttonType === 'download' ? 'text-align: left' : 'text-align: unset'};
-				margin-left: 0.5rem;
+				margin-left: 0.75rem;
 
 				@media screen and ${maxViewTablet} {
 					font-size: 0.95rem;
@@ -44,11 +44,11 @@ const StyledButton = styled.button`
 				}
 			}
 
-			// img {
-			// 	position: absolute;
-			// 	bottom: 10px;
-			// 	right: 45px;
-			// }
+			img {
+				@media screen and ${maxViewTablet} {
+					${buttonType === 'download' && 'padding-right: .5rem;'};
+				}
+			}
 
 			&:hover {
 				cursor: pointer;
