@@ -33,7 +33,9 @@ const StyledButton = styled.button`
 				flex-direction: column;
 				font-size: 1.05rem;
 				${buttonType === 'download' ? 'text-align: left' : 'text-align: unset'};
-				margin-left: 0.75rem;
+				${buttonType === 'download'
+					? 'margin-left: 0.75rem'
+					: 'margin-left : .25rem'};
 
 				@media screen and ${maxViewTablet} {
 					font-size: 0.95rem;

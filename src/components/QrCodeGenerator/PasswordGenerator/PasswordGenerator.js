@@ -99,7 +99,7 @@ const AccessControl = () => {
 				</StyledForm>
 			</FormWrapper>
 			<QrCodeWrapper>
-				{accessCode !== '' && <div id="qrcode-password" ref={qrCodeRef} />}
+				<div id="qrcode-password" ref={qrCodeRef} />
 				<StyledButtonsWrapper>
 					{(qrCode &&
 						mapStyledButton(
