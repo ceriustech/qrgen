@@ -50,7 +50,7 @@ export const StyledSelect = styled.select`
 			border: 0.1rem solid #e3ecf2;
 			border-radius: 0.5rem;
 			color: ${baseColor1};
-			${disableBottomMargin ? 'margin-bottom : 0' : 'margin-bottom: 1.5rem'};
+			${disableBottomMargin ? 'margin-bottom: 0' : 'margin-bottom: 1.5rem'};
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			padding: 0.6rem 0.75rem;
