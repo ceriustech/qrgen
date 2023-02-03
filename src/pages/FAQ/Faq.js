@@ -3,10 +3,10 @@ import Collapsible from '../../components/Collapsible/CollapsibleContainer';
 const Faq = () => {
 	return (
 		<>
-			<div>
-				<h1>Frequently Asked Questions</h1>
+			<section>
+				<h1 style={{ padding: '0 1rem' }}>Frequently Asked Questions</h1>
 				<Collapsible />
-			</div>
+			</section>
 		</>
 	);
 };

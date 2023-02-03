@@ -5,7 +5,7 @@ import { faqData } from '../../../data/faq.data';
 
 const Collapsible = () => {
 	return (
-		<CollapsibleContainer className="container">
+		<CollapsibleContainer id="collapsible">
 			<h3>Here are a few answers to some general questions about QrGen.app</h3>
 			<div className="info">
 				{faqData.map((data) => (
