@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Item } from './styles';
 import Plus from '../../../assets/images/plus-icon.svg';
 import Minus from '../../../assets/images/minus-icon.svg';
 
@@ -13,7 +14,7 @@ const CollapsibleItem = ({ title, info }) => {
 	}
 
 	return (
-		<article className="question">
+		<Item className="question">
 			<header>
 				<h4 onClick={() => setExpanded(!expanded)} className="question-title">
 					{title}
@@ -26,7 +27,7 @@ const CollapsibleItem = ({ title, info }) => {
 				</button>
 			</header>
 			{expanded && <p>{info}</p>}
-		</article>
+		</Item>
 	);
 };
 
