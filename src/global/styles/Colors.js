@@ -1,6 +1,7 @@
 export const TEXT_COLORS = {
 	white: '#FFF',
 	black: '#OOO',
+	grey: '#B2B9C4',
 };
 
 export const BACKGROUND_COLORS = {

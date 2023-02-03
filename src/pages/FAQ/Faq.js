@@ -1,8 +1,11 @@
+import Collapsible from '../../components/Collapsible/CollapsibleContainer';
+
 const Faq = () => {
 	return (
 		<>
 			<div>
-				<h1>FAQ Content</h1>
+				<h1>Frequently Asked Questions</h1>
+				<Collapsible />
 			</div>
 		</>
 	);

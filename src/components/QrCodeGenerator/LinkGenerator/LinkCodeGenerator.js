@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Input from '../../../global/components/Input';
 import Button from '../../../global/components/Button';
-import QrCodeIcon from '../../../assets/QrCodeIcon';
+import QrCodeIcon from '../../../assets/components/QrCodeIcon';
 import qrcode from 'davidshimjs-qrcodejs';
 import {
 	Container,

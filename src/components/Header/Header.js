@@ -1,5 +1,5 @@
 import { Wrapper, NavContainer, LogoContainer, LogoText } from './styles';
-import Logo from '../../assets/qr-code-logo.svg';
+import Logo from '../../assets/images/qr-code-logo.svg';
 
 const Header = ({ children }) => {
 	return (

@@ -1,7 +1,7 @@
 import StyledButton from './styles';
-import QrCodeIcon from '../../../assets/qr-code-small.svg';
-import AccessCodeIcon from '../../../assets/access-code-logo.svg';
-import DownloadIcon from '../../../assets/picture-logo.svg';
+import QrCodeIcon from '../../../assets/images/qr-code-small.svg';
+import AccessCodeIcon from '../../../assets/images/access-code-logo.svg';
+import DownloadIcon from '../../../assets/images/picture-logo.svg';
 
 const Button = ({ typeValue, children, handleClick, isWidth, icon, type }) => {
 	let buttonIcon;
