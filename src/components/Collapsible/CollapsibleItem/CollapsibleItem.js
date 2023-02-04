@@ -6,6 +6,10 @@ import Minus from '../../../assets/images/minus-icon.svg';
 const CollapsibleItem = ({ title, info }) => {
 	const [expanded, setExpanded] = useState(false);
 
+	function handleCollapsible() {
+		setExpanded(!expanded);
+	}
+
 	let faqIcon;
 	if (expanded) {
 		faqIcon = Plus;
@@ -14,10 +18,10 @@ const CollapsibleItem = ({ title, info }) => {
 	}
 
 	return (
-		<Item id="faq-item">
-			<ItemHeader>
-				<h4 onClick={() => setExpanded(!expanded)}>{title}</h4>
-				<ItemButton onClick={() => setExpanded(!expanded)}>
+		<Item id="faq-item" isExpanded={expanded}>
+			<ItemHeader isExpanded={expanded}>
+				<h4 onClick={handleCollapsible}>{title}</h4>
+				<ItemButton onClick={handleCollapsible}>
 					<img
 						src={faqIcon}
 						alt={faqIcon === Plus ? 'Plus icon' : 'Minus icon'}
