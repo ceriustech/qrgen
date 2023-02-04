@@ -6,7 +6,7 @@ const Header = ({ children }) => {
 		<Wrapper>
 			<NavContainer>
 				<LogoContainer>
-					<LogoText>QrGen</LogoText>
+					<LogoText>QRGen</LogoText>
 					<img src={Logo} alt="Qrgen logo" />
 				</LogoContainer>
 				{children}

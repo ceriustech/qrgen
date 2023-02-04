@@ -1,27 +1,33 @@
 export const faqData = [
 	{
 		id: 1,
-		title: 'Do I have to allow the use of cookies?',
-		info: 'Unicorn vinyl poutine brooklyn, next level direct trade iceland. Shaman copper mug church-key coloring book, whatever poutine normcore fixie cred kickstarter post-ironic street art.',
+		title: 'Do I have to pay to use the service?',
+		info: "No, you don't have to pay to use the service at this time. However, as the service expands and more features are added, payment options will become available for those who want to take advantage of additional benefits.",
 	},
 	{
 		id: 2,
-		title: 'How do I change my My Page password?',
-		info: 'Coloring book forage photo booth gentrify lumbersexual. Migas chillwave poutine synth shoreditch, enamel pin thundercats fashion axe roof party polaroid chartreuse.',
+		title:
+			'Will there be more options for QR Code creation available in the future?',
+		info: "Absolutely! Our team is always working on new and innovative ways to enhance the user experience. If there's enough interest in additional QR Code creation options, we'll definitely consider adding them in the future.",
 	},
 	{
 		id: 3,
-		title: 'What is BankID?',
-		info: 'Enamel pin fam sustainable woke whatever venmo. Authentic asymmetrical put a bird on it, lumbersexual activated charcoal kinfolk banjo cred pickled sartorial.',
+		title: 'Do I have to allow the use of cookies?',
+		info: "No, you don't have to allow the use of cookies at this time. However, as the service evolves and grows, this could be something that becomes necessary in order to provide a more personalized and optimized experience.",
 	},
 	{
 		id: 4,
-		title: 'Whose birth number can I use?',
-		info: 'Edison bulb direct trade gentrify beard lo-fi seitan sustainable roof party franzen occupy squid. Knausgaard cronut succulents, scenester readymade shabby chic lyft. Copper mug meh vegan gentrify.',
+		title: 'Are the QR Codes customizable?',
+		info: "Unfortunately, customization options are not available right now. However, if there's enough demand, we'll definitely consider adding this feature in the future so that our users can have a unique and personalized QR Code.",
 	},
 	{
 		id: 5,
-		title: 'When do I recieve a password ordered by letter?',
-		info: 'Locavore franzen fashion axe live-edge neutra irony synth af tilde shabby chic man braid chillwave waistcoat copper mug messenger bag. Banjo snackwave blog, microdosing thundercats migas vaporware viral lo-fi seitan ',
+		title: 'Can I track how many people have scanned my QR Code?',
+		info: "Currently, tracking the number of scans on your QR Code is not available. However, if there's enough interest from our users, this will be a feature that we'll definitely implement in the future.",
+	},
+	{
+		id: 6,
+		title: 'Do you accept feedback?',
+		info: "Yes, of course! We value our users and their opinions and always welcome feedback. I'll create a way for you to provide feedback in the coming weeks so that you can help us continue to improve our service.",
 	},
 ];
