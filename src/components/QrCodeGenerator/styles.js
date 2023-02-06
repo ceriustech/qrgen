@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BACKGROUND_COLORS, TEXT_COLORS } from '../../global/styles/Colors';
+import { BACKGROUND_COLORS } from '../../global/styles/Colors';
 import { maxView, miscMaxView } from '../../global/styles/mediaQueries';
 
 const maxViewMobileSmall = maxView.mobileS;
