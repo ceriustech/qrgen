@@ -28,7 +28,12 @@ const TabView = () => {
 		<TabViewContainer>
 			<TabViewWrapper>
 				{tabs.map((tab, index) => (
-					<TabButton key={tab.label} onClick={() => handleClick(index)}>
+					<TabButton
+						key={tab.label}
+						onClick={() => handleClick(index)}
+						active={activeTab}
+						index={index}
+					>
 						{tab.label}
 					</TabButton>
 				))}
